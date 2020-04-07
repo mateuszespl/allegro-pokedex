@@ -1,14 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { PokedexMain } from "./Components/PokedexMain";
+import * as serviceWorker from "./serviceWorker";
+import { theme } from "./theme/theme";
+import { ThemeProvider } from "styled-components";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import { GlobalStyle } from "./theme/GlobalStyle";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <PokedexMain />
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
