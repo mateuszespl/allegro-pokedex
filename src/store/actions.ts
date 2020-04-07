@@ -1,1 +1,1 @@
-export const INITIAL_ACTION = "INITIAL_ACTION";
+export const INPUT_CHANGE = "INPUT_CHANGE";

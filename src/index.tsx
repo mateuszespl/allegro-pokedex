@@ -9,14 +9,12 @@ import { store } from "./store/store";
 import { GlobalStyle } from "./theme/GlobalStyle";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <PokedexMain />
-      </ThemeProvider>
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <GlobalStyle />
+    <ThemeProvider theme={theme}>
+      <PokedexMain />
+    </ThemeProvider>
+  </Provider>,
   document.getElementById("root")
 );
 

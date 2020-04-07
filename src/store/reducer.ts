@@ -1,14 +1,15 @@
 import * as actionTypes from "./actions";
 
 const initialState = {
-  initial: true,
+  searchInputValue: "",
 };
 
 export const reducer = (state = initialState, action: any) => {
   switch (action.type) {
-    case actionTypes.INITIAL_ACTION:
+    case actionTypes.INPUT_CHANGE:
       return {
-        initial: false,
+        ...state,
+        searchInputValue: action.searchInputValue,
       };
     default:
       return state;
