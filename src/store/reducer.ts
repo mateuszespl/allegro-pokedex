@@ -2,6 +2,7 @@ import * as actionTypes from "./actions";
 
 const initialState = {
   searchInputValue: "",
+  pokemonList: [],
 };
 
 export const reducer = (state = initialState, action: any) => {
@@ -10,6 +11,11 @@ export const reducer = (state = initialState, action: any) => {
       return {
         ...state,
         searchInputValue: action.searchInputValue,
+      };
+    case actionTypes.POKEMON_LIST_UPDATE:
+      return {
+        ...state,
+        pokemonList: action.pokemonList,
       };
     default:
       return state;

@@ -26,7 +26,7 @@ const SearchInput: React.FC<SearchInputInterface> = ({
   handleChange,
 }) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper className="search__input">
       <input
         type="text"
         onChange={handleChange}

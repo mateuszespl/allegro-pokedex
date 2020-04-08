@@ -1,1 +1,2 @@
 export const INPUT_CHANGE = "INPUT_CHANGE";
+export const POKEMON_LIST_UPDATE = "POKEMON_LIST_UPDATE";

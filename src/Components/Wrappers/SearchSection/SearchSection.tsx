@@ -12,13 +12,19 @@ const StyledWrapper = styled.section`
   height: 80px;
   background: whitesmoke;
   position: fixed;
+
+  .search__form {
+    display: flex;
+  }
 `;
 
 export const SearchSection: React.FC = () => {
   return (
-    <StyledWrapper>
-      <SearchInput />
-      <SearchButton />
+    <StyledWrapper className="search">
+      <form className="search__form">
+        <SearchInput />
+        <SearchButton />
+      </form>
     </StyledWrapper>
   );
 };
