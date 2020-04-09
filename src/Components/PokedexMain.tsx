@@ -5,7 +5,6 @@ import DisplaySection from "./Wrappers/DisplaySection/DisplaySection";
 
 const StyledWrapper = styled.main`
   position: relative;
-  height: 100vh;
   width: 100vw;
   overflow: hidden;
 `;

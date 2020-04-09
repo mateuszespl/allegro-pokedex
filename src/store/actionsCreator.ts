@@ -1,19 +1,38 @@
+import { fetchPokemonData } from "../functions/fetchPokemonDataFunction";
+
+// SEARCH INPUT ON CHANGE HANDLE ACTION
+
 export const searchInputChange = (e: React.FormEvent<HTMLInputElement>) => ({
   type: "INPUT_CHANGE",
   searchInputValue: e.currentTarget.value,
 });
 
-export const fetchData = (searchInputValue) => {
+// FETCHING INITIAL API ACTION
+
+export const fetchData = (
+  searchValue: string,
+  limit: number,
+  offset: number
+) => {
   return (dispatch) => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${searchInputValue}`, {
-      method: "GET",
-    })
-      .then((data) => data.json())
-      .then((parsedData) =>
+    fetchPokemonData(searchValue.toLowerCase(), limit, offset).then(
+      (parsedData) =>
         dispatch({
           type: "POKEMON_LIST_UPDATE",
-          pokemonList: [...parsedData.results],
+          pokemonList:
+            searchValue === "" ? [...parsedData.results] : [parsedData],
         })
-      );
+    );
   };
 };
+
+// SEARCH INPUT CLEAR FUNCTION
+
+export const clearInput = () => ({ type: "CLEAR_INPUT" });
+
+// UPDATE OF CURRENT / NEXT / PREVIOUS PAGE
+
+export const updateCurrentPage = (updatedPage: number) => ({
+  type: "UPDATE_CURRENT_PAGE",
+  currentPage: updatedPage,
+});

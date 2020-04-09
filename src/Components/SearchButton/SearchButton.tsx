@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
-import { fetchData } from "../../store/actionsCreator";
+import { fetchData, clearInput } from "../../store/actionsCreator";
 
 const StyledWrapper = styled.button`
   height: 45px;
@@ -20,16 +20,19 @@ const StyledWrapper = styled.button`
 
 export interface SearchButtonInterface {
   searchInputValue: string;
-  fetchData: (searchInputValue: string) => any;
+  fetchData: (searchInputValue: string, offset?: number, limit?: number) => any;
+  clearInput: () => any;
 }
 
 const SearchButton: React.FC<SearchButtonInterface> = ({
   searchInputValue,
   fetchData,
+  clearInput,
 }) => {
   const handleClick = (e) => {
     e.preventDefault();
     fetchData(searchInputValue);
+    clearInput();
   };
   return (
     <StyledWrapper className="search__button" onClick={handleClick}>
@@ -44,7 +47,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchData: (searchInputValue) => dispatch(fetchData(searchInputValue)),
+    fetchData: (searchInputValue) =>
+      dispatch(fetchData(searchInputValue, null, null)),
+    clearInput: () => dispatch(clearInput()),
   };
 };
 

@@ -10,7 +10,7 @@ const StyledWrapper = styled.section`
   top: 0;
   width: 100%;
   height: 80px;
-  background: whitesmoke;
+  background: ${({ theme }) => theme.colors.white};
   position: fixed;
 
   .search__form {
