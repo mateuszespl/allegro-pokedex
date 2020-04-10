@@ -5,9 +5,10 @@ import PokemonListItem from "../PokemonListItem/PokemonListItem";
 
 const StyledWrapper = styled.ul`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 40px;
 `;
 
 export interface PokemonListInterface {

@@ -30,9 +30,7 @@ export const reducer = (state = initialState, action: any) => {
     case actionTypes.UPDATE_CURRENT_PAGE:
       return {
         ...state,
-        nextPage: action.nextPage,
         currentPage: action.currentPage,
-        previousPage: action.previousPage,
       };
     default:
       return state;

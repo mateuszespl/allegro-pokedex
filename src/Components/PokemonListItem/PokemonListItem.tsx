@@ -1,11 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
 import styled from "styled-components";
 import { fetchPokemonData } from "../../functions/fetchPokemonDataFunction";
 import { PokemonDescription } from "../PokemonDescription/PokemonDescription";
+import { PokemonShowcase } from "../PokemonShowcase/PokemonShowcase";
 
-const StyledWrapper = styled.ul`
-  width: 80vh;
+const StyledWrapper = styled.li<{ type1: string; type2: string }>`
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px 0;
+  border-radius: 45px;
+  padding: 20px;
+  background: ${({ theme, type1, type2 }) => {
+    if (type2 !== undefined) {
+      const index1 = Object.keys(theme.colors).findIndex(
+        (colorKey) => colorKey === type1
+      );
+      const color1: any = Object.values(theme.colors)[index1];
+      const index2 = Object.keys(theme.colors).findIndex(
+        (colorKey) => colorKey === type2
+      );
+      const color2: any = Object.values(theme.colors)[index2];
+      return `linear-gradient(45deg, ${color1}, ${color2})`;
+    } else {
+      const index1 = Object.keys(theme.colors).findIndex(
+        (colorKey) => colorKey === type1
+      );
+      const color1: any = Object.values(theme.colors)[index1];
+      return color1;
+    }
+  }};
 `;
 
 export interface PokemonListItemInterface {
@@ -23,6 +48,11 @@ export interface pokemonDataInterface {
   sprites: {
     front_default: string;
   };
+  types: Array<{
+    type: {
+      name: string;
+    };
+  }>;
 }
 
 const PokemonListItem: React.FC<PokemonListItemInterface> = ({
@@ -44,7 +74,17 @@ const PokemonListItem: React.FC<PokemonListItemInterface> = ({
   return (
     <>
       {pokemonData ? (
-        <StyledWrapper key={key} className="pokemon" id={pokemon.name}>
+        <StyledWrapper
+          key={key}
+          // types={pokemonData.types.map(({ type }) => type.name).join(" ")}
+          type1={pokemonData.types[0].type.name}
+          type2={
+            pokemonData.types[1] ? pokemonData.types[1].type.name : undefined
+          }
+          className={`pokemon`}
+          id={pokemon.name}
+        >
+          <PokemonShowcase pokemonData={pokemonData} />
           <PokemonDescription pokemonData={pokemonData} />
         </StyledWrapper>
       ) : undefined}
@@ -52,8 +92,4 @@ const PokemonListItem: React.FC<PokemonListItemInterface> = ({
   );
 };
 
-const mapStateToProps = (state) => ({});
-
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(PokemonListItem);
+export default PokemonListItem;

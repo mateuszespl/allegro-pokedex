@@ -7,8 +7,9 @@ import { connect } from "react-redux";
 
 const StyledWrapper = styled.section`
   margin: 80px;
-  border-radius: 100px;
+  border-radius: 50px;
   background: ${({ theme }) => theme.colors.darkWhite};
+  position: relative;
 `;
 
 export interface DisplaySectionInterface {
