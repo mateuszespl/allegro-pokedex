@@ -5,6 +5,7 @@ const initialState = {
   pokemonList: [],
   currentPage: 0,
   limit: 20,
+  filterSectionVisible: false,
 };
 
 export const reducer = (state = initialState, action: any) => {
@@ -28,6 +29,11 @@ export const reducer = (state = initialState, action: any) => {
       return {
         ...state,
         currentPage: action.currentPage,
+      };
+    case actionTypes.SET_FILTER_SECTION_VISIBILITY:
+      return {
+        ...state,
+        filterSectionVisible: !state.filterSectionVisible,
       };
     default:
       return state;

@@ -13,6 +13,7 @@ const StyledWrapper = styled.div`
       h1 {
         color: ${({ theme }) => theme.colors.white};
         text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.lightBlack};
+        font-size: ${({ theme }) => theme.fonts.l};
       }
     }
 

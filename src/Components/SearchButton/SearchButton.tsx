@@ -12,7 +12,7 @@ const StyledWrapper = styled.button`
   justify-content: center;
   border: 1px solid ${({ theme }) => theme.colors.red};
   border-left: none;
-  border-radius: 0 25px 25px 0;
+  border-right: none;
   outline: none;
   font-size: ${({ theme }) => theme.fonts.m};
   cursor: pointer;

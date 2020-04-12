@@ -2,11 +2,20 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-const StyledWrapper = styled.section``;
+const StyledWrapper = styled.section<{ filterSectionVisible: boolean }>`
+  display: ${({ filterSectionVisible }) =>
+    filterSectionVisible ? "block" : "none"};
+`;
 
-const FiltersSection = () => {
+export interface FiltersSectionInterface {
+  filterSectionVisible: boolean;
+}
+
+const FiltersSection: React.FC<FiltersSectionInterface> = ({
+  filterSectionVisible,
+}) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper filterSectionVisible={filterSectionVisible}>
       <select name="" id=""></select>
       <select name="" id=""></select>
     </StyledWrapper>
@@ -14,9 +23,13 @@ const FiltersSection = () => {
 };
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    filterSectionVisible: state.filterSectionVisible,
+  };
 };
 
-const mapDispatchToProps = (dispatch) => {};
+const mapDispatchToProps = (dispatch) => {
+  return {};
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(FiltersSection);

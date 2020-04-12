@@ -36,3 +36,9 @@ export const updateCurrentPage = (updatedPage: number) => ({
   type: "UPDATE_CURRENT_PAGE",
   currentPage: updatedPage,
 });
+
+// UPDATE VISIBILITY OF FILTER SECTION
+
+export const setFilterSectionVisibility = () => ({
+  type: "SET_FILTER_SECTION_VISIBILITY",
+});

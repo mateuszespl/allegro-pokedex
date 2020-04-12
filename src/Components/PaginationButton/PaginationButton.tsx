@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { updateCurrentPage } from "../../store/actionsCreator";
 import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
 
-const StyledWrapper = styled.button<{ previous: boolean }>`
+const StyledWrapper = styled.a<{ previous: boolean }>`
   padding: ${({ previous }) =>
     previous ? "10px 20px 10px 50px" : "10px 50px 10px 20px"};
   margin: 0 10px;
@@ -19,6 +19,7 @@ const StyledWrapper = styled.button<{ previous: boolean }>`
   font-weight: 800;
   position: relative;
   outline: none;
+  text-decoration: none;
 
   svg {
     position: absolute;
@@ -51,6 +52,7 @@ const PaginationButton: React.FC<PaginationButtonInterface> = ({
 
   return (
     <StyledWrapper
+      href="#main"
       className={`pagination__button ${previous ? "previous" : "next"}`}
       onClick={handleClick}
       previous={previous}
