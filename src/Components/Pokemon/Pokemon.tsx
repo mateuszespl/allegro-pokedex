@@ -6,7 +6,7 @@ import { PokemonShowcase } from "../PokemonShowcase/PokemonShowcase";
 import { PokemonStats } from "../PokemonStats/PokemonStats";
 
 const StyledWrapper = styled.li<{ type1: string; type2: string }>`
-  width: 100%;
+  width: 800px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -32,6 +32,7 @@ const StyledWrapper = styled.li<{ type1: string; type2: string }>`
       return color1;
     }
   }};
+  box-shadow: 0px 0px 3px 3px ${({ theme }) => theme.colors.lightBlack};
 `;
 
 export interface PokemonInterface {

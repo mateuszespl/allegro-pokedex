@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 const StyledWrapper = styled.section`
   margin: 80px;
   border-radius: 50px;
+  padding: 0 0 40px 0;
   background: ${({ theme }) => theme.colors.darkWhite};
   position: relative;
 `;

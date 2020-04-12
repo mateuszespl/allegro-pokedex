@@ -10,6 +10,19 @@ const StyledWrapper = styled.ul`
   li {
     margin: 5px;
     list-style: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: ${({ theme }) => theme.colors.white};
+    text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.lightBlack};
+    box-shadow: 2px 2px 3px 0px ${({ theme }) => theme.colors.lightBlack};
+    font-size: ${({ theme }) => theme.fonts.m};
+  }
+
+  .description {
+    &__height,
+    &__weight {
+      background: ${({ theme }) => theme.colors.lightBlack};
+    }
   }
 `;
 
@@ -22,11 +35,10 @@ const StyledLi = styled.li<{ type: any }>`
     return color;
   }};
 
-  padding: 5px 10px;
-  border-radius: 15px;
   color: ${({ theme }) => theme.colors.white};
+  font-weight: 800;
   text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.lightBlack};
-  box-shadow: 0px 1px 5px -1px ${({ theme }) => theme.colors.lightBlack};
+  box-shadow: 2px 2px 3px 0px ${({ theme }) => theme.colors.lightBlack};
 `;
 
 export interface PokemonDescriptionInterface {
@@ -48,11 +60,11 @@ export const PokemonDescription: React.FC<PokemonDescriptionInterface> = ({
   const { height, weight, types } = pokemonData;
   return (
     <StyledWrapper className="description">
-      <li className="description__height">Wzrost: {height}</li>
-      <li className="description__weight">Waga: {weight}</li>
+      <li className="description__height">Wzrost: {height / 10}m</li>
+      <li className="description__weight">Waga: {weight / 10}kg</li>
       {types.map(({ type }) => (
         <StyledLi type={type.name} className="description__type">
-          Typ: {type.name}
+          {type.name.toUpperCase()}
         </StyledLi>
       ))}
     </StyledWrapper>

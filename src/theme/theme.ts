@@ -5,7 +5,7 @@ export const theme = {
     darkWhite: "rgb(245,245,245)",
     grey: "rgb(130,130,130)",
     darkGrey: "rgb(90,90,90)",
-    lightBlack: "rgba(30,30,30,.5)",
+    lightBlack: "rgba(30,30,30,.3)",
     water: "rgb(31,87,218)",
     poison: "rgb(87,51,132)",
     grass: "rgb(57,121,68)",
@@ -17,7 +17,7 @@ export const theme = {
     ground: "rgb(162,114,56)",
     fairy: "rgb(139,39,69)",
     fighting: "rgb(143,69,46)",
-    psyhic: "rgb(151,54,106)",
+    psychic: "rgb(151,54,106)",
     rock: "rgb(67,27,15)",
     steel: "rgb(99,116,110)",
     ghost: "rgb(50,53,102)",
@@ -26,5 +26,10 @@ export const theme = {
   },
   fonts: {
     m: "16px",
+    s: "14px",
+    xs: "12px",
+    xxs: "10px",
+    l: "22px",
+    xl: "30px",
   },
 };

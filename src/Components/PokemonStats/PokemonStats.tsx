@@ -2,8 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
-  .stats {
-  }
+  background: ${({ theme }) => theme.colors.lightBlack};
+  padding: 10px 20px 10px 10px;
+  border-radius: 25px;
+  box-shadow: 2px 2px 3px 0px ${({ theme }) => theme.colors.lightBlack};
 `;
 
 const StyledLi = styled.li<{ base_stat: number }>`
@@ -12,6 +14,10 @@ const StyledLi = styled.li<{ base_stat: number }>`
   text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.lightBlack};
   margin: 5px;
   display: flex;
+  justify-content:flex-end;
+  align-items:center;
+  font-size:${({ theme }) => theme.fonts.s};
+
 
   span {
     width: 150px;
@@ -20,6 +26,9 @@ const StyledLi = styled.li<{ base_stat: number }>`
     background: ${({ theme }) => theme.colors.white};
     display: block;
     position: relative;
+    margin: 0 0 0 15px;
+    font-size:${({ theme }) => theme.fonts.xxs};
+    font-weight:800;
 
     ::after {
       content: "";
@@ -28,24 +37,33 @@ const StyledLi = styled.li<{ base_stat: number }>`
       left: 0;
       height: 100%;
       width: ${({ base_stat }) => (base_stat ? `${base_stat}%` : "0%")};
+      max-width:100%;
       position: absolute;
       z-index:2;
-      background: red;
+      background: ${({ theme }) => theme.colors.darkGrey};
       border-radius: 5px;
     }
 
     ::before {
       content: "${({ base_stat }) => (base_stat ? `${base_stat}` : "")}";
-      color: white;
+      color: 1px 1px 1px ${({ theme }) => theme.colors.white};
       z-index:3;
       display: inline-block;
       position: absolute;
       top: 50%;
-      left: ${({ base_stat }) => (base_stat ? base_stat + "%" : "0%")};
-      padding: 2px;
+      left: ${({ base_stat }) =>
+        !(base_stat > 100) ? `${base_stat}%` : "100%"};
       transform: translate(-50%, -50%);
-      background:black;
+      background:${({ theme }) => theme.colors.grey};
+      box-shadow: 0px 0px 1px 0px ${({ theme }) => theme.colors.lightBlack};
       border-radius:50%;
+      width:19px;
+      height:19px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.lightBlack};
+
     }
   }
 `;
@@ -70,7 +88,7 @@ export const PokemonStats: React.FC<PokemonStatsInterface> = ({
       <ul className="stats__list">
         {stats.map((stat) => (
           <StyledLi base_stat={stat.base_stat} className="stats__item">
-            {stat.stat.name}: <span></span>
+            {stat.stat.name.toUpperCase()} <span></span>
           </StyledLi>
         ))}
       </ul>
