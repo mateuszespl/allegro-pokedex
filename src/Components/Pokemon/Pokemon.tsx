@@ -3,9 +3,10 @@ import styled from "styled-components";
 import { fetchPokemonData } from "../../functions/fetchPokemonDataFunction";
 import { PokemonDescription } from "../PokemonDescription/PokemonDescription";
 import { PokemonShowcase } from "../PokemonShowcase/PokemonShowcase";
+import { PokemonStats } from "../PokemonStats/PokemonStats";
 
 const StyledWrapper = styled.li<{ type1: string; type2: string }>`
-  width: 45%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -33,7 +34,7 @@ const StyledWrapper = styled.li<{ type1: string; type2: string }>`
   }};
 `;
 
-export interface PokemonListItemInterface {
+export interface PokemonInterface {
   pokemon: {
     name: string;
   };
@@ -53,12 +54,15 @@ export interface pokemonDataInterface {
       name: string;
     };
   }>;
+  stats: Array<{
+    base_stat: number;
+    stat: {
+      name: string;
+    };
+  }>;
 }
 
-const PokemonListItem: React.FC<PokemonListItemInterface> = ({
-  pokemon,
-  key,
-}) => {
+const Pokemon: React.FC<PokemonInterface> = ({ pokemon, key }) => {
   const [pokemonData, setPokemonData] = useState<
     pokemonDataInterface | undefined
   >(undefined);
@@ -76,7 +80,6 @@ const PokemonListItem: React.FC<PokemonListItemInterface> = ({
       {pokemonData ? (
         <StyledWrapper
           key={key}
-          // types={pokemonData.types.map(({ type }) => type.name).join(" ")}
           type1={pokemonData.types[0].type.name}
           type2={
             pokemonData.types[1] ? pokemonData.types[1].type.name : undefined
@@ -86,10 +89,11 @@ const PokemonListItem: React.FC<PokemonListItemInterface> = ({
         >
           <PokemonShowcase pokemonData={pokemonData} />
           <PokemonDescription pokemonData={pokemonData} />
+          <PokemonStats pokemonData={pokemonData} />
         </StyledWrapper>
       ) : undefined}
     </>
   );
 };
 
-export default PokemonListItem;
+export default Pokemon;

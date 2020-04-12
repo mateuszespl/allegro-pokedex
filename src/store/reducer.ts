@@ -18,9 +18,6 @@ export const reducer = (state = initialState, action: any) => {
       return {
         ...state,
         pokemonList: action.pokemonList,
-        nextPage: action.nextPage,
-        previousPage: action.previousPage,
-        currentPAge: action.currentPage,
       };
     case actionTypes.CLEAR_INPUT:
       return {

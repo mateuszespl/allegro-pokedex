@@ -8,7 +8,7 @@ const StyledWrapper = styled.ul`
   justify-content: center;
 
   li {
-    padding: 5px;
+    margin: 5px;
     list-style: none;
   }
 `;
@@ -22,11 +22,11 @@ const StyledLi = styled.li<{ type: any }>`
     return color;
   }};
 
-  padding: 5px 15px;
-  border-radius: 5px;
-  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 15px;
   color: ${({ theme }) => theme.colors.white};
-  text-shadow: 1px 1px 1px black;
+  text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.lightBlack};
+  box-shadow: 0px 1px 5px -1px ${({ theme }) => theme.colors.lightBlack};
 `;
 
 export interface PokemonDescriptionInterface {

@@ -8,6 +8,14 @@ const StyledWrapper = styled.div`
   flex-direction: column;
 
   .showcase {
+    &__name {
+      margin: 5px;
+      h1 {
+        color: ${({ theme }) => theme.colors.white};
+        text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.lightBlack};
+      }
+    }
+
     &__img {
       position: relative;
       height: 130px;

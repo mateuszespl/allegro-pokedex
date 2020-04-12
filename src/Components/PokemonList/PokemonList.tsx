@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import PokemonListItem from "../PokemonListItem/PokemonListItem";
+import PokemonListItem from "../Pokemon/Pokemon";
 
 const StyledWrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   padding: 40px;
 `;
 
