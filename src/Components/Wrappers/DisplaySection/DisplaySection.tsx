@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import PokemonList from "../../PokemonList/PokemonList";
 import PaginationSection from "../PaginationSection/PaginationSection";
-import { fetchData } from "../../../store/actionsCreator";
-import { connect } from "react-redux";
 
 const StyledWrapper = styled.section`
   margin: 0 80px;
@@ -13,21 +11,7 @@ const StyledWrapper = styled.section`
   position: relative;
 `;
 
-export interface DisplaySectionInterface {
-  limit: number;
-  currentPage: number;
-  fetchData: (searchValue: string, limit: number, currentPage: number) => any;
-}
-
-const DisplaySection: React.FC<DisplaySectionInterface> = ({
-  limit,
-  currentPage,
-  fetchData,
-}) => {
-  useEffect(() => {
-    fetchData("", limit, currentPage);
-  }, [currentPage]);
-
+const DisplaySection: React.FC = () => {
   return (
     <StyledWrapper className="display">
       <PokemonList />
@@ -36,18 +20,4 @@ const DisplaySection: React.FC<DisplaySectionInterface> = ({
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    currentPage: state.currentPage,
-    limit: state.limit,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchData: (searchValue, limit, currentPage) =>
-      dispatch(fetchData(searchValue, limit, currentPage)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(DisplaySection);
+export default DisplaySection;

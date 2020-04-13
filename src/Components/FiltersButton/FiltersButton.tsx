@@ -5,7 +5,7 @@ import { FaFilter } from "react-icons/fa";
 import { setFilterSectionVisibility } from "../../store/actionsCreator";
 
 const StyledWrapper = styled.button`
-  border: 1px solid ${({ theme }) => theme.colors.red};
+  border: 1px solid ${({ theme }) => theme.colors.darkGrey};
   display: flex;
   align-items: center;
   justify-content: center;

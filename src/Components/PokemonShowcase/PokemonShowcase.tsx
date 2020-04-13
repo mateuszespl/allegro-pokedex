@@ -1,11 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledWrapper = styled.div`
+const StyledWrapper = styled.div<{ pokeId: number }>`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  
+  ::after {
+    content:"${({ pokeId }) => (pokeId ? `#${pokeId}` : `#`)}";
+    position:absolute;
+    top:0;
+    left:0;
+    width:50px;
+    font-weight:800;
+    font-size:${({ theme }) => theme.fonts.m};
+    height:50px;
+    background:${({ theme }) => theme.colors.darkWhite};
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    box-shadow:2px 2px 5px 3px ${({ theme }) => theme.colors.lightBlack};
+    transform:translate(-25%,-25%);
+  }
 
   .showcase {
     &__name {
@@ -55,6 +73,7 @@ export interface PokemonShowcaseInterface {
     sprites: {
       front_default: string;
     };
+    id: number;
   };
 }
 
@@ -64,9 +83,10 @@ export const PokemonShowcase: React.FC<PokemonShowcaseInterface> = ({
   const {
     name,
     sprites: { front_default: img },
+    id,
   } = pokemonData;
   return (
-    <StyledWrapper className="showcase">
+    <StyledWrapper pokeId={id} className="showcase">
       <header className="showcase__name">
         <h1>{name.toUpperCase()}</h1>
       </header>

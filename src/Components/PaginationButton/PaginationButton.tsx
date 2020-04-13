@@ -8,6 +8,9 @@ const StyledWrapper = styled.a<{ previous: boolean }>`
   padding: ${({ previous }) =>
     previous ? "10px 20px 10px 50px" : "10px 50px 10px 20px"};
   margin: 0 10px;
+  width: 200px;
+  height: 40px;
+  text-align: center;
   border: none;
   background: ${({ theme }) => theme.colors.lightBlack};
   border-radius: 20px;

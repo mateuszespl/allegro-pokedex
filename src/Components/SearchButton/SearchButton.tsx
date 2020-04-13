@@ -10,7 +10,7 @@ const StyledWrapper = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid ${({ theme }) => theme.colors.red};
+  border: 1px solid ${({ theme }) => theme.colors.darkGrey};
   border-left: none;
   border-right: none;
   outline: none;

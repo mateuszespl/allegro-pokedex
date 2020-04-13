@@ -1,10 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import { FiltersList } from "../../FiltersList/FiltersList";
 
 const StyledWrapper = styled.section<{ filterSectionVisible: boolean }>`
-  display: ${({ filterSectionVisible }) =>
-    filterSectionVisible ? "block" : "none"};
+  margin: 0 auto;
+  width: 550px;
+  height: ${({ filterSectionVisible }) =>
+    filterSectionVisible ? "80px" : "0"};
+  overflow: ${({ filterSectionVisible }) =>
+    filterSectionVisible ? "unset" : "hidden"};
+  border: ${({ filterSectionVisible, theme }) =>
+    filterSectionVisible ? `1px solid ${theme.colors.darkGrey}` : ""};
+  border-top: none;
+  bottom: 40px;
+  position: relative;
+  border-radius: 0 0 25px 25px;
+  padding: 35px 0 0 0;
 `;
 
 export interface FiltersSectionInterface {
@@ -15,9 +27,11 @@ const FiltersSection: React.FC<FiltersSectionInterface> = ({
   filterSectionVisible,
 }) => {
   return (
-    <StyledWrapper filterSectionVisible={filterSectionVisible}>
-      <select name="" id=""></select>
-      <select name="" id=""></select>
+    <StyledWrapper
+      className="filter__section"
+      filterSectionVisible={filterSectionVisible}
+    >
+      <FiltersList />
     </StyledWrapper>
   );
 };

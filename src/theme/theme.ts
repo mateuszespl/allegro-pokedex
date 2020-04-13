@@ -23,6 +23,8 @@ export const theme = {
     ghost: "rgb(50,53,102)",
     ice: "rgb(150,209,242)",
     dark: "rgb(4,7,6)",
+    dragon: "rgb(134,124,247)",
+    black: "rgb(0,0,0)",
   },
   fonts: {
     m: "16px",
@@ -30,6 +32,6 @@ export const theme = {
     xs: "12px",
     xxs: "10px",
     l: "22px",
-    xl: "30px",
+    xl: "26px",
   },
 };

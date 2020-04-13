@@ -4,10 +4,11 @@ import styled from "styled-components";
 import { searchInputChange } from "./../../store/actionsCreator";
 
 const StyledWrapper = styled.label`
+  width: 100%;
   input {
+    width: 100%;
     height: 45px;
-    width: 600px;
-    border: 1px solid ${({ theme }) => theme.colors.red};
+    border: 1px solid ${({ theme }) => theme.colors.darkGrey};
     padding: 10px 15px;
     border-radius: 25px 0 0 25px;
     border-right: none;

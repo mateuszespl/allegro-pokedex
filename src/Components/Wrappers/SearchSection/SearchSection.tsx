@@ -14,6 +14,9 @@ const StyledWrapper = styled.section`
 
   .search__form {
     display: flex;
+    position: relative;
+    z-index: 2;
+    width: 650px;
   }
 `;
 

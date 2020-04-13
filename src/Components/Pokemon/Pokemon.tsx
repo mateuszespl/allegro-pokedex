@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { fetchPokemonData } from "../../functions/fetchPokemonDataFunction";
 import { PokemonDescription } from "../PokemonDescription/PokemonDescription";
 import { PokemonShowcase } from "../PokemonShowcase/PokemonShowcase";
 import { PokemonStats } from "../PokemonStats/PokemonStats";
@@ -9,6 +8,7 @@ const StyledWrapper = styled.li<{ type1: string; type2: string }>`
   width: 800px;
   display: flex;
   align-items: center;
+  position: relative;
   justify-content: space-around;
   margin: 10px 0;
   border-radius: 45px;
@@ -36,10 +36,8 @@ const StyledWrapper = styled.li<{ type1: string; type2: string }>`
 `;
 
 export interface PokemonInterface {
-  pokemon: {
-    name: string;
-  };
   key: number;
+  pokemonData: pokemonDataInterface;
 }
 
 export interface pokemonDataInterface {
@@ -63,19 +61,7 @@ export interface pokemonDataInterface {
   }>;
 }
 
-const Pokemon: React.FC<PokemonInterface> = ({ pokemon, key }) => {
-  const [pokemonData, setPokemonData] = useState<
-    pokemonDataInterface | undefined
-  >(undefined);
-
-  useEffect(() => {
-    fetchPokemonData(pokemon.name)
-      .then((parsedData) => setPokemonData(parsedData))
-      .catch(
-        (err) => new Error(`Nie można pobrać danych o ${pokemon.name}. ${err}`)
-      );
-  }, [pokemon.name]);
-
+const Pokemon: React.FC<PokemonInterface> = ({ pokemonData, key }) => {
   return (
     <>
       {pokemonData ? (
@@ -86,7 +72,7 @@ const Pokemon: React.FC<PokemonInterface> = ({ pokemon, key }) => {
             pokemonData.types[1] ? pokemonData.types[1].type.name : undefined
           }
           className={`pokemon`}
-          id={pokemon.name}
+          id={pokemonData.name}
         >
           <PokemonShowcase pokemonData={pokemonData} />
           <PokemonDescription pokemonData={pokemonData} />

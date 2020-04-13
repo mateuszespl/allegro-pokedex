@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PaginationButton from "../../PaginationButton/PaginationButton";
+import PaginationSelect from "../../PaginationSelect/PaginationSelect";
 
 const StyledWrapper = styled.section`
   width: 100%;
@@ -14,6 +15,7 @@ const PaginationSection: React.FC = () => {
   return (
     <StyledWrapper>
       <PaginationButton previous />
+      <PaginationSelect />
       <PaginationButton />
     </StyledWrapper>
   );
