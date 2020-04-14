@@ -5,13 +5,15 @@ const initialState = {
   searchInputValue: "",
   pokemonList: [],
   pokemonDataList: [],
-  filteredPokemonList: [],
+  currentPagePokemonList: [],
+  filteredPokemonDataList: [],
   currentPage: 0,
   limit: 20,
   filterSectionVisible: false,
   weightValue: 0,
   heightValue: 0,
   typeValue: "",
+  currentFilters: [],
 };
 
 export const reducer = (state = initialState, action: any) => {
@@ -61,12 +63,22 @@ export const reducer = (state = initialState, action: any) => {
         ...state,
         limit: action.value,
       };
+    case actionTypes.FILTERS_CHANGE:
+      return {
+        ...state,
+        currentFilters: [...state.currentFilters, action.filter].sort(),
+      };
     case actionTypes.POKEMON_LIST_DATA_UPDATE:
       return {
         ...state,
         pokemonDataList: [...state.pokemonDataList, action.pokemonData].sort(
           compare
         ),
+      };
+    case actionTypes.POKEMON_FILTERED_LIST_DATA_UPDATE:
+      return {
+        ...state,
+        filteredPokemonDataList: action.filteredList,
       };
     default:
       return state;

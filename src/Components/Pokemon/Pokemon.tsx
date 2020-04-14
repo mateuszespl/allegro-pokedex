@@ -5,7 +5,7 @@ import { PokemonShowcase } from "../PokemonShowcase/PokemonShowcase";
 import { PokemonStats } from "../PokemonStats/PokemonStats";
 
 const StyledWrapper = styled.li<{ type1: string; type2: string }>`
-  width: 800px;
+  width: 100%;
   display: flex;
   align-items: center;
   position: relative;

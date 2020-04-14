@@ -4,9 +4,10 @@ import PokemonList from "../../PokemonList/PokemonList";
 import PaginationSection from "../PaginationSection/PaginationSection";
 
 const StyledWrapper = styled.section`
-  margin: 0 80px;
+  width: 850px;
+  padding: 50px;
   border-radius: 50px;
-  padding: 0 0 40px 0;
+  margin: 0 0 50px 0;
   background: ${({ theme }) => theme.colors.darkWhite};
   position: relative;
 `;

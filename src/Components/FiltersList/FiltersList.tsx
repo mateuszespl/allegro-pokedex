@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Filter from "../Filter/Filter";
+import FiltersSubmitButton from "../FiltersSubmitButton/FiltersSubmitButton";
 
 const StyledWrapper = styled.ul`
   display: flex;
@@ -15,6 +16,7 @@ export const FiltersList = () => {
       <Filter filter={"Waga"} />
       <Filter filter={"Wzrost"} />
       <Filter filter={"Typ"} />
+      <FiltersSubmitButton />
     </StyledWrapper>
   );
 };

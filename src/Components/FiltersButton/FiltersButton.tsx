@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { FaFilter } from "react-icons/fa";
 import { setFilterSectionVisibility } from "../../store/actionsCreator";
 
-const StyledWrapper = styled.button`
+const StyledWrapper = styled.button<{ filtersCount: number }>`
   border: 1px solid ${({ theme }) => theme.colors.darkGrey};
   display: flex;
   align-items: center;
@@ -15,28 +15,51 @@ const StyledWrapper = styled.button`
   cursor: pointer;
   outline: none;
   font-size: ${({ theme }) => theme.fonts.s};
+  position:relative;
+
+  ::after{
+  content: "${({ filtersCount }) => filtersCount}";
+    position:absolute;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    font-weight:800;
+    justify-content:center;
+    font-size:${({ theme }) => theme.fonts.xxs};
+    color:${({ theme }) => theme.colors.white};
+    bottom:25%;
+    right:30%;
+    background:${({ theme }) => theme.colors.darkGrey};
+
+  }
 `;
 
 export interface FiltersButtonInterface {
   setFilterSectionVisibility: () => any;
+  filtersCount: number;
 }
 
 const FiltersButton: React.FC<FiltersButtonInterface> = ({
   setFilterSectionVisibility,
+  filtersCount,
 }) => {
   const handleClick = (e) => {
     e.preventDefault();
     setFilterSectionVisibility();
   };
   return (
-    <StyledWrapper onClick={handleClick}>
+    <StyledWrapper filtersCount={filtersCount} onClick={handleClick}>
       <FaFilter />
     </StyledWrapper>
   );
 };
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    filtersCount: state.currentFilters.length,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {

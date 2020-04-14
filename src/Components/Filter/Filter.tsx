@@ -6,9 +6,13 @@ import {
   setWeightValue,
   setHeightValue,
   setTypeValue,
+  setCurrentFilters,
 } from "../../store/actionsCreator";
 
-const StyledWrapper = styled.li<{ filterVisible: boolean }>`
+const StyledWrapper = styled.li<{
+  filterVisible: boolean;
+  filterApplied: boolean;
+}>`
   padding: 5px 10px;
   border: 1px solid ${({ theme }) => theme.colors.darkGrey};
   border-radius: 15px;
@@ -31,6 +35,7 @@ const StyledWrapper = styled.li<{ filterVisible: boolean }>`
       outline: none;
       position: absolute;
       border: none;
+      opacity: ${({ filterApplied }) => (filterApplied ? "50%" : "100%")};
       top: 0;
       left: 0;
       display: flex;
@@ -40,8 +45,7 @@ const StyledWrapper = styled.li<{ filterVisible: boolean }>`
       font-size: ${({ theme }) => theme.fonts.s};
       background: ${({ theme }) => theme.colors.darkWhite};
       color: ${({ theme }) => theme.colors.darkGrey};
-
-      cursor: pointer;
+      cursor: ${({ filterApplied }) => (filterApplied ? "unset" : "pointer")};
 
       svg {
         margin: 0 3px;
@@ -96,6 +100,7 @@ export interface FilterInterface {
   setHeightValue: () => any;
   typeValue: number;
   setTypeValue: () => any;
+  setFilters: (e: React.FormEvent<HTMLInputElement>) => any;
 }
 
 const Filter: React.FC<FilterInterface> = ({
@@ -106,11 +111,25 @@ const Filter: React.FC<FilterInterface> = ({
   setHeightValue,
   typeValue,
   setTypeValue,
+  setFilters,
 }) => {
   const [filterVisible, setFilterVisible] = useState<boolean>(false);
+  const [filterApplied, setFilterApplied] = useState<boolean>(false);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setFilters(e);
+    setFilterVisible(!filterVisible);
+    setFilterApplied(!filterApplied);
+  };
   return (
-    <StyledWrapper filterVisible={filterVisible} className="filter">
+    <StyledWrapper
+      filterApplied={filterApplied}
+      filterVisible={filterVisible}
+      className="filter"
+    >
       <button
+        disabled={filterApplied}
         onClick={() => setFilterVisible(!filterVisible)}
         className="filter__switch"
       >
@@ -172,7 +191,9 @@ const Filter: React.FC<FilterInterface> = ({
             </select>
           </label>
         )}
-        <button className="filter__button">Zastosuj filtr</button>
+        <button value={filter} onClick={handleClick} className="filter__button">
+          Zastosuj filtr
+        </button>
       </div>
     </StyledWrapper>
   );
@@ -191,6 +212,7 @@ const mapDispatchToProps = (dispatch) => {
     setWeightValue: (e) => dispatch(setWeightValue(e)),
     setHeightValue: (e) => dispatch(setHeightValue(e)),
     setTypeValue: (e) => dispatch(setTypeValue(e)),
+    setFilters: (e) => dispatch(setCurrentFilters(e)),
   };
 };
 
