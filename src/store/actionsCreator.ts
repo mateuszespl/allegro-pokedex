@@ -30,11 +30,7 @@ export const fetchData = (
   offset: number
 ) => {
   return async (dispatch) => {
-    const data = await fetchPokemonData(
-      searchValue.toLowerCase(),
-      limit,
-      offset
-    );
+    const data = await fetchPokemonData(searchValue.toLowerCase(), 50, 0);
     localStorage.setItem(
       "Pokemons",
       JSON.stringify(data.results.map((result) => result.name))
@@ -49,10 +45,28 @@ export const clearInput = () => ({ type: "CLEAR_INPUT" });
 
 // UPDATE OF CURRENT / NEXT / PREVIOUS PAGE
 
-export const updateCurrentPage = (updatedPage: number) => ({
-  type: "UPDATE_CURRENT_PAGE",
-  currentPage: updatedPage,
-});
+export const updateCurrentPage = (
+  currentPage: number,
+  updatedPage: number,
+  limit: number
+) => {
+  const currentRange = currentPage * limit;
+  const updatedRange = updatedPage * limit;
+  return (dispatch, getState) => {
+    const pokemonDataList = getState().pokemonDataList;
+    const updatedPokemonDataList = pokemonDataList.slice(
+      currentRange,
+      updatedRange
+    );
+    return dispatch({
+      type: "UPDATE_CURRENT_PAGE",
+      updatedPage: updatedPage,
+      updatedPagePokemonDataList: updatedPokemonDataList,
+    });
+  };
+  // type: "UPDATE_CURRENT_PAGE",
+  // currentPage: updatedPage,
+};
 
 // UPDATE VISIBILITY OF FILTER SECTION
 
@@ -162,3 +176,14 @@ export const filterPokemonList = (pokemonDataList, filters) => {
     }
   };
 };
+
+// DISPLAY MODE UPDATE
+
+export const displayModeUpdate = (mode) => ({
+  type: "DISPLAY_MODE_UPDATE",
+  mode: mode,
+});
+
+// CLEAR FILTERS ACTION
+
+export const clearFilters = () => ({ type: "CLEAR_FILTERS" });

@@ -10,7 +10,6 @@ const StyledWrapper = styled.section`
   justify-content: center;
   width: 100%;
   height: 80px;
-  background: ${({ theme }) => theme.colors.white};
 
   .search__form {
     display: flex;

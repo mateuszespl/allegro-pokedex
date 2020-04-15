@@ -7,6 +7,7 @@ export const theme = {
     green: "rgb(92,152,92)",
     darkGrey: "rgb(90,90,90)",
     lightBlack: "rgba(30,30,30,.3)",
+    lightGrey: "rgba(130,130,130,.2)",
     water: "rgb(31,87,218)",
     poison: "rgb(87,51,132)",
     grass: "rgb(57,121,68)",

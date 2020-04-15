@@ -38,7 +38,11 @@ const StyledWrapper = styled.a<{ previous: boolean }>`
 export interface PaginationButtonInterface {
   previous?: boolean;
   currentPage: number;
-  updateCurrentPage: (updatedPage: number) => any;
+  updateCurrentPage: (
+    currentPage: number,
+    updatedPage: number,
+    limit: number
+  ) => any;
   limit: number;
 }
 
@@ -48,16 +52,22 @@ const PaginationButton: React.FC<PaginationButtonInterface> = ({
   updateCurrentPage,
   limit,
 }) => {
-  const handleClick = () => {
-    const updatedPage = previous ? currentPage - 20 : currentPage + 20;
-    updateCurrentPage(updatedPage);
+  const handleClick = (previous) => {
+    if (previous) {
+      const previousCurrentPage = currentPage - 2;
+      const updatedPage = currentPage - 1;
+      updateCurrentPage(previousCurrentPage, updatedPage, limit);
+    } else {
+      const updatedPage = currentPage + 1;
+      updateCurrentPage(currentPage, updatedPage, limit);
+    }
   };
 
   return (
     <StyledWrapper
       href="#main"
       className={`pagination__button ${previous ? "previous" : "next"}`}
-      onClick={handleClick}
+      onClick={() => handleClick(previous)}
       previous={previous}
     >
       {previous ? (
@@ -84,8 +94,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateCurrentPage: (updatedPage) =>
-      dispatch(updateCurrentPage(updatedPage)),
+    updateCurrentPage: (currentPage, updatedPage, limit) =>
+      dispatch(updateCurrentPage(currentPage, updatedPage, limit)),
   };
 };
 

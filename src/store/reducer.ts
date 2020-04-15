@@ -5,15 +5,19 @@ const initialState = {
   searchInputValue: "",
   pokemonList: [],
   pokemonDataList: [],
-  currentPagePokemonList: [],
+  currentPagePokemonDataList: [],
   filteredPokemonDataList: [],
-  currentPage: 0,
+  currentPage: 1,
   limit: 20,
   filterSectionVisible: false,
   weightValue: 0,
   heightValue: 0,
   typeValue: "",
   currentFilters: [],
+  weightFilterApplied: false,
+  heightFilterApplied: false,
+  typeFilterApplied: false,
+  displayMode: "",
 };
 
 export const reducer = (state = initialState, action: any) => {
@@ -36,7 +40,8 @@ export const reducer = (state = initialState, action: any) => {
     case actionTypes.UPDATE_CURRENT_PAGE:
       return {
         ...state,
-        currentPage: action.currentPage,
+        currentPage: action.updatedPage,
+        currentPagePokemonDataList: action.updatedPagePokemonDataList,
       };
     case actionTypes.SET_FILTER_SECTION_VISIBILITY:
       return {
@@ -74,11 +79,37 @@ export const reducer = (state = initialState, action: any) => {
         pokemonDataList: [...state.pokemonDataList, action.pokemonData].sort(
           compare
         ),
+        currentPagePokemonDataList: state.pokemonDataList.slice(0, 20),
       };
     case actionTypes.POKEMON_FILTERED_LIST_DATA_UPDATE:
       return {
         ...state,
         filteredPokemonDataList: action.filteredList,
+      };
+    case actionTypes.TYPE_FILTER_STATUS_CHANGE:
+      return {
+        ...state,
+        typeFilterApplied: !state.typeFilterApplied,
+      };
+    case actionTypes.WEIGHT_FILTER_STATUS_CHANGE:
+      return {
+        ...state,
+        weightFilterApplied: !state.weightFilterApplied,
+      };
+    case actionTypes.HEIGHT_FILTER_STATUS_CHANGE:
+      return {
+        ...state,
+        heightFilterApplied: !state.heightFilterApplied,
+      };
+    case actionTypes.DISPLAY_MODE_UPDATE:
+      return {
+        ...state,
+        displayMode: action.mode,
+      };
+    case actionTypes.CLEAR_FILTERS:
+      return {
+        ...state,
+        currentFilters: [],
       };
     default:
       return state;

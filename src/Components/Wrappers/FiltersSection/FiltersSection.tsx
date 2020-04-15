@@ -7,7 +7,7 @@ const StyledWrapper = styled.section<{ filterSectionVisible: boolean }>`
   margin: 0 auto;
   width: 550px;
   height: ${({ filterSectionVisible }) =>
-    filterSectionVisible ? "80px" : "0"};
+    filterSectionVisible ? "80px" : "0px"};
   overflow: ${({ filterSectionVisible }) =>
     filterSectionVisible ? "unset" : "hidden"};
   border: ${({ filterSectionVisible, theme }) =>
@@ -17,6 +17,8 @@ const StyledWrapper = styled.section<{ filterSectionVisible: boolean }>`
   position: relative;
   border-radius: 0 0 25px 25px;
   padding: 35px 0 0 0;
+  background: ${({ theme, filterSectionVisible }) =>
+    filterSectionVisible ? theme.colors.white : "unset"};
 `;
 
 export interface FiltersSectionInterface {

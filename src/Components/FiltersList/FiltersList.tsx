@@ -13,9 +13,9 @@ const StyledWrapper = styled.ul`
 export const FiltersList = () => {
   return (
     <StyledWrapper className="filter__list">
-      <Filter filter={"Waga"} />
-      <Filter filter={"Wzrost"} />
-      <Filter filter={"Typ"} />
+      <Filter filter="Waga" />
+      <Filter filter="Wzrost" />
+      <Filter filter="Typ" />
       <FiltersSubmitButton />
     </StyledWrapper>
   );

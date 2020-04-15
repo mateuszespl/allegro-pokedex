@@ -20,6 +20,8 @@ export interface PokemonListInterface {
   fetchPokemonInfoData: (pokemonList: any) => any;
   pokemonDataList: Array<any>;
   filteredPokemonDataList: Array<any>;
+  displayMode: string;
+  currentPagePokemonDataList: Array<any>;
 }
 
 const PokemonList: React.FC<PokemonListInterface> = ({
@@ -29,18 +31,20 @@ const PokemonList: React.FC<PokemonListInterface> = ({
   fetchData,
   fetchPokemonInfoData,
   pokemonDataList,
+  displayMode,
   filteredPokemonDataList,
+  currentPagePokemonDataList,
 }) => {
   useEffect(() => {
     fetchData("", limit, currentPage);
     fetchPokemonInfoData(pokemonList);
-  }, [pokemonList.length, currentPage, limit]);
+  }, [pokemonList.length]);
 
   return (
     <StyledWrapper className="display__list">
-      {(filteredPokemonDataList.length > 0
+      {(displayMode === "Filter"
         ? filteredPokemonDataList
-        : pokemonDataList
+        : currentPagePokemonDataList
       ).map((pokemonData, id) => (
         <Pokemon key={id} pokemonData={pokemonData} />
       ))}
@@ -50,11 +54,13 @@ const PokemonList: React.FC<PokemonListInterface> = ({
 
 const mapStateToProps = (state) => {
   return {
+    displayMode: state.displayMode,
     currentPage: state.currentPage,
     limit: state.limit,
     pokemonList: state.pokemonList,
     pokemonDataList: state.pokemonDataList,
     filteredPokemonDataList: state.filteredPokemonDataList,
+    currentPagePokemonDataList: state.currentPagePokemonDataList,
   };
 };
 

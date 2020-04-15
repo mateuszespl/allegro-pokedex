@@ -12,6 +12,7 @@ const StyledWrapper = styled.main`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background: ${({ theme }) => theme.colors.lightGrey};
 `;
 
 export const PokedexMain: React.FC = () => {
