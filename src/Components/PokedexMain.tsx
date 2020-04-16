@@ -15,7 +15,7 @@ const StyledWrapper = styled.main<{ pokemonDataList: Array<any> }>`
   justify-content: center;
   flex-direction: column;
   height: ${({ pokemonDataList }) =>
-    pokemonDataList.length < 1000 ? "100vh" : "unset"};
+    pokemonDataList.length < 963 ? "100vh" : "unset"};
 `;
 
 export interface PokedexMainInterface {
