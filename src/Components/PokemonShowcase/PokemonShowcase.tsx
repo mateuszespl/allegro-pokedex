@@ -6,6 +6,7 @@ const StyledWrapper = styled.div<{ pokeId: number }>`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  order:1;
   
   ::after {
     content:"${({ pokeId }) => (pokeId ? `#${pokeId}` : `#`)}";
@@ -52,17 +53,51 @@ const StyledWrapper = styled.div<{ pokeId: number }>`
         left: 50%;
         transform: translate(-50%, -50%);
         display: block;
-        z-index: 1;
+        z-index: 0;
       }
 
       img {
-        z-index: 2;
+        z-index: 1;
         position: relative;
         width: 100%;
         height: 100%;
         object-position: center center;
         object-fit: cover;
       }
+    }
+  }
+
+  ${({ theme }) => theme.media.tablet}{
+    width:45%;
+  }
+
+  ${({ theme }) => theme.media.smallTablet}{
+    width:60%;
+  }
+
+  ${({ theme }) => theme.media.largeMobile} {
+    width:50%;
+
+    ::after{
+      font-size:${({ theme }) => theme.fonts.s};
+      height:35px;
+      width:35px;
+    }
+
+    .showcase__name{
+      h1{
+        font-size: ${({ theme }) => theme.fonts.m};
+
+      }
+    }
+  }
+
+  ${({ theme }) => theme.media.mobile} {
+    width:40%;
+
+    .showcase__img{
+      height:80px;
+      width:80px;
     }
   }
 `;

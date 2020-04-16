@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import {
@@ -61,6 +61,12 @@ const FiltersSubmitButton: React.FC<FiltersSubmitButtonInterface> = ({
       displayModeUpdate("Filter");
     }
   };
+
+  useEffect(() => {
+    if (currentFilters.length === 0) {
+      setFilterApplied(false);
+    }
+  }, [currentFilters.length]);
   return (
     <StyledWrapper
       className="filters__submit"

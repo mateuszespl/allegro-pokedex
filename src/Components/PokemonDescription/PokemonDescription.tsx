@@ -6,6 +6,7 @@ const StyledWrapper = styled.ul`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  order: 2;
 
   li {
     margin: 5px;
@@ -23,6 +24,31 @@ const StyledWrapper = styled.ul`
     &__weight {
       background: ${({ theme }) => theme.colors.lightBlack};
     }
+  }
+
+  ${({ theme }) => theme.media.tablet} {
+    flex-direction: row;
+    margin: 10px 0 0 0;
+    width: 100%;
+    order: 3;
+  }
+
+  ${({ theme }) => theme.media.smallTablet} {
+    order: 2;
+    width: 40%;
+    flex-direction: column;
+    margin: unset;
+  }
+
+  ${({ theme }) => theme.media.largeMobile} {
+    width: 50%;
+    li {
+      font-size: ${({ theme }) => theme.fonts.s};
+    }
+  }
+
+  ${({ theme }) => theme.media.mobile} {
+    width: 60%;
   }
 `;
 

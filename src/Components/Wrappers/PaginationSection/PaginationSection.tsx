@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import PaginationButton from "../../PaginationButton/PaginationButton";
 import PaginationSelect from "../../PaginationSelect/PaginationSelect";
+import { connect } from "react-redux";
+import PaginationReturnButton from "../../PaginationReturnButton/PaginationReturnButton";
 
 const StyledWrapper = styled.section`
   width: 100%;
@@ -11,14 +13,32 @@ const StyledWrapper = styled.section`
   justify-content: center;
 `;
 
-const PaginationSection: React.FC = () => {
+export interface PaginationSectionInterface {
+  displayMode: string;
+}
+
+const PaginationSection: React.FC<PaginationSectionInterface> = ({
+  displayMode,
+}) => {
   return (
     <StyledWrapper>
-      <PaginationButton previous />
-      <PaginationSelect />
-      <PaginationButton />
+      {displayMode !== "Filter" ? (
+        <>
+          <PaginationButton previous />
+          <PaginationSelect />
+          <PaginationButton />
+        </>
+      ) : (
+        <PaginationReturnButton />
+      )}
     </StyledWrapper>
   );
 };
 
-export default PaginationSection;
+const mapStateToProps = (state) => {
+  return {
+    displayMode: state.displayMode,
+  };
+};
+
+export default connect(mapStateToProps, null)(PaginationSection);

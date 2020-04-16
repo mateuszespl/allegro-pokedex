@@ -23,6 +23,10 @@ const StyledWrapper = styled.li<{
   flex-direction: column;
   z-index: 100;
   background: ${({ theme }) => theme.colors.darkWhite};
+
+  ${({ theme }) => theme.media.smallTablet} {
+    margin: 5px;
+  }
 `;
 
 export interface FilterInterface {

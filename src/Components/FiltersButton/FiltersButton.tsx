@@ -39,18 +39,24 @@ const StyledWrapper = styled.button<{ filtersCount: number }>`
 export interface FiltersButtonInterface {
   setFilterSectionVisibility: () => any;
   filtersCount: number;
+  searchInputValue: string;
 }
 
 const FiltersButton: React.FC<FiltersButtonInterface> = ({
   setFilterSectionVisibility,
   filtersCount,
+  searchInputValue,
 }) => {
   const handleClick = (e) => {
     e.preventDefault();
     setFilterSectionVisibility();
   };
   return (
-    <StyledWrapper filtersCount={filtersCount} onClick={handleClick}>
+    <StyledWrapper
+      disabled={searchInputValue.length !== 0 ? true : false}
+      filtersCount={filtersCount}
+      onClick={handleClick}
+    >
       <FaFilter />
     </StyledWrapper>
   );
@@ -58,6 +64,7 @@ const FiltersButton: React.FC<FiltersButtonInterface> = ({
 
 const mapStateToProps = (state) => {
   return {
+    searchInputValue: state.searchInputValue,
     filtersCount: state.currentFilters.length,
   };
 };

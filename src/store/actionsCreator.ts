@@ -26,11 +26,11 @@ export const pokemonListUpdate = (data, searchValue) => ({
 
 export const fetchData = (
   searchValue: string,
-  limit: number,
-  offset: number
+  limit?: number,
+  offset?: number
 ) => {
   return async (dispatch) => {
-    const data = await fetchPokemonData(searchValue.toLowerCase(), 50, 0);
+    const data = await fetchPokemonData(searchValue.toLowerCase(), 1000, 0);
     localStorage.setItem(
       "Pokemons",
       JSON.stringify(data.results.map((result) => result.name))
@@ -97,9 +97,9 @@ export const setTypeValue = (e: React.FormEvent<HTMLInputElement>) => ({
 
 // HANDLE LIMIT VALUE CHANGE
 
-export const setLimitValue = (e: React.FormEvent<HTMLInputElement>) => ({
+export const setLimitValue = (e: React.FormEvent<HTMLSelectElement>) => ({
   type: "LIMIT_CHANGE",
-  value: e.currentTarget.value,
+  value: Number(e.currentTarget.value),
 });
 
 // FETCHING POKEMON INFO
@@ -187,3 +187,50 @@ export const displayModeUpdate = (mode) => ({
 // CLEAR FILTERS ACTION
 
 export const clearFilters = () => ({ type: "CLEAR_FILTERS" });
+
+// UPDATE OF AUTOCOMPLETE LIST
+
+export const updateAutocompleteList = () => {
+  return (dispatch, getState) => {
+    const searchInputValue = getState().searchInputValue.toLowerCase();
+    if (searchInputValue.length === 0) {
+      return dispatch({
+        type: "UPDATE_AUTOCOMPLETE_LIST",
+        autocompleteList: [],
+      });
+    } else {
+      const pokemonList = getState().pokemonList;
+      const autocompleteList = pokemonList.filter((pokemon) =>
+        pokemon.includes(searchInputValue)
+      );
+      console.log(searchInputValue, pokemonList);
+      console.log(autocompleteList);
+
+      return dispatch({
+        type: "UPDATE_AUTOCOMPLETE_LIST",
+        autocompleteList: autocompleteList,
+      });
+    }
+  };
+};
+
+// FILTER POKEMON BY SEARCHED NAME
+
+export const searchPokemon = (pokemonName: string) => {
+  return (dispatch, getState) => {
+    const pokemonDataList = getState().pokemonDataList;
+    const searchedPokemon = pokemonDataList.filter(
+      (pokemon) => pokemon.name === pokemonName
+    );
+    return dispatch({
+      type: "SEARCH_POKEMON",
+      filteredList: searchedPokemon,
+    });
+  };
+};
+
+// HANDLE RETURN BUTTON CLICK
+
+export const returnButtonClick = () => ({
+  type: "RETURN_BUTTON_CLICK",
+});

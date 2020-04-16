@@ -33,6 +33,10 @@ const StyledWrapper = styled.li<{ type1: string; type2: string }>`
     }
   }};
   box-shadow: 0px 0px 3px 3px ${({ theme }) => theme.colors.lightBlack};
+
+  ${({ theme }) => theme.media.tablet} {
+    flex-wrap: wrap;
+  }
 `;
 
 export interface PokemonInterface {

@@ -7,7 +7,6 @@ const StyledWrapper = styled.select`
   padding: 10px 20px;
   margin: 0 10px;
   border: none;
-  width: 108px;
   height: 40px;
   background: ${({ theme }) => theme.colors.lightBlack};
   border-radius: 20px;
@@ -19,6 +18,15 @@ const StyledWrapper = styled.select`
   font-weight: 800;
   outline: none;
   text-decoration: none;
+
+  ${({ theme }) => theme.media.tablet} {
+    font-size: ${({ theme }) => theme.fonts.s};
+  }
+
+  ${({ theme }) => theme.media.mobile} {
+    margin: unset;
+    height: 30px;
+  }
 `;
 
 export interface PaginationSelectInterface {
@@ -32,10 +40,10 @@ const PaginationSelect: React.FC<PaginationSelectInterface> = ({
 }) => {
   return (
     <StyledWrapper value={limit} onChange={setLimitValue}>
-      <option value="20">20</option>
-      <option value="50">50</option>
-      <option value="100">100</option>
-      <option value="1000">Wszystkie</option>
+      <option value={20}>20</option>
+      <option value={50}>50</option>
+      <option value={100}>100</option>
+      {/* <option value={1000}>Wszystkie</option> */}
     </StyledWrapper>
   );
 };

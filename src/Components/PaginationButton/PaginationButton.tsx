@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { updateCurrentPage } from "../../store/actionsCreator";
@@ -10,6 +10,7 @@ const StyledWrapper = styled.a<{ previous: boolean }>`
   margin: 0 10px;
   width: 200px;
   height: 40px;
+  white-space: nowrap;
   text-align: center;
   border: none;
   background: ${({ theme }) => theme.colors.lightBlack};
@@ -32,6 +33,29 @@ const StyledWrapper = styled.a<{ previous: boolean }>`
     height: 45px;
     left: ${({ previous }) => (previous ? "-5px" : "unset")};
     right: ${({ previous }) => (!previous ? "-5px" : "unset")};
+  }
+
+  ${({ theme }) => theme.media.tablet} {
+    font-size: ${({ theme }) => theme.fonts.s};
+  }
+
+  ${({ theme }) => theme.media.largeMobile} {
+    width: 120px;
+    padding: 5px 10px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      display: none;
+    }
+  }
+
+  ${({ theme }) => theme.media.mobile} {
+    width: 110px;
+    height: 30px;
+    margin: 0 5px;
   }
 `;
 
@@ -63,25 +87,33 @@ const PaginationButton: React.FC<PaginationButtonInterface> = ({
     }
   };
 
+  useEffect(() => {
+    updateCurrentPage(0, 1, limit);
+  }, [limit]);
+
   return (
-    <StyledWrapper
-      href="#main"
-      className={`pagination__button ${previous ? "previous" : "next"}`}
-      onClick={() => handleClick(previous)}
-      previous={previous}
-    >
-      {previous ? (
-        <>
-          <FaArrowCircleLeft />
-          Poprzednie {limit}
-        </>
-      ) : (
-        <>
-          Następne {limit}
-          <FaArrowCircleRight />
-        </>
-      )}
-    </StyledWrapper>
+    <>
+      {/* {limit !== 1000 && ( */}
+      <StyledWrapper
+        href="#main"
+        className={`pagination__button ${previous ? "previous" : "next"}`}
+        onClick={() => handleClick(previous)}
+        previous={previous}
+      >
+        {previous ? (
+          <>
+            <FaArrowCircleLeft />
+            Poprzednie {limit}
+          </>
+        ) : (
+          <>
+            Następne {limit}
+            <FaArrowCircleRight />
+          </>
+        )}
+      </StyledWrapper>
+      {/* )} */}
+    </>
   );
 };
 

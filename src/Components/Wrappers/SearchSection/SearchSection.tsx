@@ -10,6 +10,7 @@ const StyledWrapper = styled.section`
   justify-content: center;
   width: 100%;
   height: 80px;
+  padding: 0 20px;
 
   .search__form {
     display: flex;

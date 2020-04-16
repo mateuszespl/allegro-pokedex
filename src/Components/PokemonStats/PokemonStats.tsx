@@ -6,6 +6,16 @@ const StyledWrapper = styled.div`
   padding: 10px 20px 10px 10px;
   border-radius: 25px;
   box-shadow: 2px 2px 3px 0px ${({ theme }) => theme.colors.lightBlack};
+  order: 3;
+
+  ${({ theme }) => theme.media.tablet} {
+    width: 55%;
+    order: 2;
+  }
+
+  ${({ theme }) => theme.media.smallTablet} {
+    display: none;
+  }
 `;
 
 const StyledLi = styled.li<{ base_stat: number }>`
@@ -22,10 +32,11 @@ const StyledLi = styled.li<{ base_stat: number }>`
   span {
     width: 150px;
     height: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     background: ${({ theme }) => theme.colors.white};
     display: block;
     position: relative;
+    z-index:0;
     margin: 0 0 0 15px;
     font-size:${({ theme }) => theme.fonts.xxs};
     font-weight:800;
@@ -41,7 +52,7 @@ const StyledLi = styled.li<{ base_stat: number }>`
       position: absolute;
       z-index:2;
       background: ${({ theme }) => theme.colors.darkGrey};
-      border-radius: 5px;
+      border-radius: 10px;
     }
 
     ::before {
@@ -63,7 +74,21 @@ const StyledLi = styled.li<{ base_stat: number }>`
       align-items:center;
       justify-content:center;
       text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.lightBlack};
+    }
+  }
 
+  ${({ theme }) => theme.media.tablet} {
+    font-size: ${({ theme }) => theme.fonts.xxs};
+
+    span{
+      width:100px;
+      height:5px;
+
+      ::before{
+        width:14px;
+        height:14px;
+        font-weight:400;
+      }
     }
   }
 `;

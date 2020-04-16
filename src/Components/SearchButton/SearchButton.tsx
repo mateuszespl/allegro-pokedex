@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
-import { fetchData, clearInput } from "../../store/actionsCreator";
+import { searchPokemon } from "../../store/actionsCreator";
 
 const StyledWrapper = styled.button`
   height: 45px;
@@ -20,19 +20,18 @@ const StyledWrapper = styled.button`
 
 export interface SearchButtonInterface {
   searchInputValue: string;
-  fetchData: (searchInputValue: string, offset?: number, limit?: number) => any;
-  clearInput: () => any;
+  searchPokemon: (searchInputValue: string) => any;
 }
 
 const SearchButton: React.FC<SearchButtonInterface> = ({
   searchInputValue,
-  fetchData,
-  clearInput,
+  searchPokemon,
 }) => {
   const handleClick = (e) => {
     e.preventDefault();
-    fetchData(searchInputValue);
-    clearInput();
+    if (searchInputValue.length === 0) {
+      alert("Wpisz nazwę szukanego pokemona.");
+    } else searchPokemon(searchInputValue);
   };
   return (
     <StyledWrapper className="search__button" onClick={handleClick}>
@@ -47,9 +46,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchData: (searchInputValue) =>
-      dispatch(fetchData(searchInputValue, null, null)),
-    clearInput: () => dispatch(clearInput()),
+    searchPokemon: (searchInputValue) =>
+      dispatch(searchPokemon(searchInputValue)),
   };
 };
 

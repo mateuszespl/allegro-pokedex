@@ -9,7 +9,6 @@ const StyledWrapper = styled.ul`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 40px;
 `;
 
 export interface PokemonListInterface {

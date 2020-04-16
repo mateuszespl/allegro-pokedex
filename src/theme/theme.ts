@@ -36,4 +36,10 @@ export const theme = {
     l: "22px",
     xl: "26px",
   },
+  media: {
+    tablet: "@media(max-width:870px)",
+    smallTablet: "@media(max-width:620px)",
+    largeMobile: "@media(max-width:490px)",
+    mobile: "@media(max-width:380px)",
+  },
 };

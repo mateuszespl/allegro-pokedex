@@ -3,21 +3,19 @@ import { compare } from "../functions/compareFunction";
 
 const initialState = {
   searchInputValue: "",
+  displayMode: "",
+  typeValue: "",
   pokemonList: [],
   pokemonDataList: [],
   currentPagePokemonDataList: [],
   filteredPokemonDataList: [],
+  currentFilters: [],
+  autocompleteList: [],
   currentPage: 1,
   limit: 20,
-  filterSectionVisible: false,
   weightValue: 0,
   heightValue: 0,
-  typeValue: "",
-  currentFilters: [],
-  weightFilterApplied: false,
-  heightFilterApplied: false,
-  typeFilterApplied: false,
-  displayMode: "",
+  filterSectionVisible: false,
 };
 
 export const reducer = (state = initialState, action: any) => {
@@ -86,21 +84,6 @@ export const reducer = (state = initialState, action: any) => {
         ...state,
         filteredPokemonDataList: action.filteredList,
       };
-    case actionTypes.TYPE_FILTER_STATUS_CHANGE:
-      return {
-        ...state,
-        typeFilterApplied: !state.typeFilterApplied,
-      };
-    case actionTypes.WEIGHT_FILTER_STATUS_CHANGE:
-      return {
-        ...state,
-        weightFilterApplied: !state.weightFilterApplied,
-      };
-    case actionTypes.HEIGHT_FILTER_STATUS_CHANGE:
-      return {
-        ...state,
-        heightFilterApplied: !state.heightFilterApplied,
-      };
     case actionTypes.DISPLAY_MODE_UPDATE:
       return {
         ...state,
@@ -110,6 +93,27 @@ export const reducer = (state = initialState, action: any) => {
       return {
         ...state,
         currentFilters: [],
+      };
+    case actionTypes.UPDATE_AUTOCOMPLETE_LIST:
+      return {
+        ...state,
+        autocompleteList: action.autocompleteList.slice(0, 10),
+      };
+    case actionTypes.SEARCH_POKEMON:
+      return {
+        ...state,
+        filteredPokemonDataList: action.filteredList,
+        displayMode: "Filter",
+        searchInputValue: "",
+        autocompleteList: [],
+      };
+    case actionTypes.RETURN_BUTTON_CLICK:
+      return {
+        ...state,
+        displayMode: "Unset",
+        filteredPokemonDataList: [],
+        currentFilters: [],
+        filterSectionVisible: false,
       };
     default:
       return state;
