@@ -15,7 +15,7 @@ const StyledWrapper = styled.main<{ pokemonDataList: Array<any> }>`
   justify-content: center;
   flex-direction: column;
   height: ${({ pokemonDataList }) =>
-    pokemonDataList.length < 19 ? "100vh" : "unset"};
+    pokemonDataList.length < 964 ? "100vh" : "unset"};
 `;
 
 export interface PokedexMainInterface {
@@ -25,7 +25,7 @@ export interface PokedexMainInterface {
 const PokedexMain: React.FC<PokedexMainInterface> = ({ pokemonDataList }) => {
   return (
     <StyledWrapper pokemonDataList={pokemonDataList} id="main" className="main">
-      {pokemonDataList.length < 19 && <LoadingScreen />}
+      {pokemonDataList.length < 964 && <LoadingScreen />}
       <SearchSection />
       <FiltersSection />
       <DisplaySection />
