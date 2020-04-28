@@ -25,7 +25,7 @@ export interface PokedexMainInterface {
 const PokedexMain: React.FC<PokedexMainInterface> = ({ pokemonDataList }) => {
   return (
     <StyledWrapper pokemonDataList={pokemonDataList} id="main" className="main">
-      {pokemonDataList.length < 964 && <LoadingScreen />}
+      {/* {pokemonDataList.length < 964 && <LoadingScreen />} */}
       <SearchSection />
       <FiltersSection />
       <DisplaySection />

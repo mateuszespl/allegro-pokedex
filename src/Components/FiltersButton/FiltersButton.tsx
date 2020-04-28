@@ -15,6 +15,7 @@ const StyledWrapper = styled.button<{ filtersCount: number }>`
   cursor: pointer;
   outline: none;
   font-size: ${({ theme }) => theme.fonts.s};
+  background: ${({ theme }) => theme.colors.white};
   position:relative;
 
   ::after{

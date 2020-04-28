@@ -13,6 +13,7 @@ const StyledWrapper = styled.button`
   border: 1px solid ${({ theme }) => theme.colors.darkGrey};
   border-left: none;
   border-right: none;
+  background: ${({ theme }) => theme.colors.white};
   outline: none;
   font-size: ${({ theme }) => theme.fonts.m};
   cursor: pointer;

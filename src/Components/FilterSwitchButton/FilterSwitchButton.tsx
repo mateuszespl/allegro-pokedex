@@ -23,6 +23,8 @@ const StyledWrapper = styled.button<{
   align-items: center;
   font-size: ${({ theme }) => theme.fonts.s};
   background: ${({ theme }) => theme.colors.darkWhite};
+  z-index: 100;
+  overflow: hidden;
   color: ${({ theme }) => theme.colors.darkGrey};
   cursor: ${({ filterApplied, displayMode }) =>
     filterApplied || displayMode === "Filter" ? "unset" : "pointer"};

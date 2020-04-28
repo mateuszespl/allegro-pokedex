@@ -21,6 +21,11 @@ const StyledWrapper = styled.label<{ autocompleteList: Array<any> }>`
     font-size: ${({ theme }) => theme.fonts.m};
     outline: none;
     background: ${({ theme }) => theme.colors.white};
+
+    :disabled {
+      background: ${({ theme }) => theme.colors.white};
+      opacity: 100%;
+    }
   }
 `;
 
