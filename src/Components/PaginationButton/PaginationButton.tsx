@@ -93,7 +93,6 @@ const PaginationButton: React.FC<PaginationButtonInterface> = ({
 
   return (
     <>
-      {/* {limit !== 1000 && ( */}
       <StyledWrapper
         href="#main"
         className={`pagination__button ${previous ? "previous" : "next"}`}
@@ -112,7 +111,6 @@ const PaginationButton: React.FC<PaginationButtonInterface> = ({
           </>
         )}
       </StyledWrapper>
-      {/* )} */}
     </>
   );
 };

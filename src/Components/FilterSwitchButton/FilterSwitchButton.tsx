@@ -29,6 +29,11 @@ const StyledWrapper = styled.button<{
   cursor: ${({ filterApplied, displayMode }) =>
     filterApplied || displayMode === "Filter" ? "unset" : "pointer"};
 
+  &:disabled,
+  [disabled] {
+    cursor: not-allowed;
+  }
+
   svg {
     margin: 0 3px;
     font-size: ${({ theme }) => theme.fonts.m};

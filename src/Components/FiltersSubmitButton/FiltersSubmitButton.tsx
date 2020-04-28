@@ -27,6 +27,11 @@ const StyledWrapper = styled.button<{
   color: ${({ theme }) => theme.colors.white};
   cursor: ${({ currentFilters }) =>
     currentFilters.length === 0 ? "unset" : "pointer"};
+
+  &:disabled,
+  [disabled] {
+    cursor: not-allowed;
+  }
 `;
 
 export interface FiltersSubmitButtonInterface {

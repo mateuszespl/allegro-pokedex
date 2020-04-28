@@ -18,6 +18,10 @@ const StyledWrapper = styled.button<{ filtersCount: number }>`
   background: ${({ theme }) => theme.colors.white};
   position:relative;
 
+  &:disabled, [disabled]{
+    cursor:not-allowed;
+  }
+
   ::after{
   content: "${({ filtersCount }) => filtersCount}";
     position:absolute;
