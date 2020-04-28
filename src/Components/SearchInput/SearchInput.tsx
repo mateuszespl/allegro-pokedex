@@ -23,7 +23,8 @@ const StyledWrapper = styled.label<{ autocompleteList: Array<any> }>`
     background: ${({ theme }) => theme.colors.white};
     -webkit-appearance: none;
 
-    :disabled {
+    &&:disabled,
+    [disabled] {
       background: ${({ theme }) => theme.colors.white};
       opacity: 100%;
     }
