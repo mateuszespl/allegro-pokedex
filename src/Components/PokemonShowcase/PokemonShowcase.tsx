@@ -43,7 +43,7 @@ const StyledWrapper = styled.div<{ pokeId: number }>`
 
       ::after {
         content: "";
-        background-image: url("https://png2.cleanpng.com/sh/fce5c12427b6855d57f16d061c3953fd/L0KzQYq3V8MyN6l2j5H0aYP2gLBuTgRzaZ94iNN7ZX7miX79ifRmd15sed9ucz3pgrbsTgBwc5Zned51LYDxd376ifxpd6ZqjOZuLXTyh7BzjBFlNWMyiNDwLXHwPYbrVMFkOZQAetgEZkK7Poq5UcY2PmU1SacBNEW8QIa6V8c5PGoziNDw/kisspng-transparency-video-games-free-pokeball-png-silhouette-download-2-png-am-5d41c1c9bf9f28.9216564015645905377849.png");
+        background-image: url("https://www.shareicon.net/data/128x128/2016/10/18/844160_game_512x512.png");
         width: 110%;
         height: 110%;
         position: absolute;
