@@ -25,7 +25,8 @@ const StyledWrapper = styled.label<{ autocompleteList: Array<any> }>`
 
     &:disabled,
     [disabled] {
-      opacity: 100% !important;
+      -webkit-text-fill-color: ${({ theme }) => theme.colors.lightGrey};
+      opacity: 1 !important;
       cursor: not-allowed;
     }
   }
