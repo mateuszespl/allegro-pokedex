@@ -46,6 +46,7 @@ const StyledWrapper = styled.div<{ pokeId: number }>`
         background-image: url("https://www.shareicon.net/data/128x128/2016/10/18/844160_game_512x512.png");
         width: 110%;
         height: 110%;
+        -webkit-appearance: none;
         position: absolute;
         background-size: cover;
         opacity: 10%;
