@@ -17,11 +17,11 @@ export interface PaginationSectionInterface {
   displayMode: string;
 }
 
-const PaginationSection: React.FC<PaginationSectionInterface> = ({
+export const PaginationSection: React.FC<PaginationSectionInterface> = ({
   displayMode,
 }) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper className="pagination" data-test="pagination">
       {displayMode !== "Filter" ? (
         <>
           <PaginationButton previous />

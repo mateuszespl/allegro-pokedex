@@ -35,12 +35,13 @@ export interface FiltersSectionInterface {
   filterSectionVisible: boolean;
 }
 
-const FiltersSection: React.FC<FiltersSectionInterface> = ({
+export const FiltersSection: React.FC<FiltersSectionInterface> = ({
   filterSectionVisible,
 }) => {
   return (
     <StyledWrapper
-      className="filter__section"
+      className="filters"
+      data-test="filters"
       filterSectionVisible={filterSectionVisible}
     >
       <FiltersList />

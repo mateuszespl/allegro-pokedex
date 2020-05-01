@@ -22,7 +22,7 @@ const StyledWrapper = styled.section`
 
 export const SearchSection: React.FC = () => {
   return (
-    <StyledWrapper className="search">
+    <StyledWrapper className="search" data-test="search">
       <form className="search__form">
         <SearchInput />
         <SearchButton />

@@ -26,7 +26,7 @@ export interface AutocompleteButtonInterface {
   searchPokemon: (searchedName: React.FormEvent<HTMLButtonElement>) => any;
 }
 
-const AutocompleteButton: React.FC<AutocompleteButtonInterface> = ({
+export const AutocompleteButton: React.FC<AutocompleteButtonInterface> = ({
   autocompleteItem,
   searchPokemon,
 }) => {
@@ -35,7 +35,12 @@ const AutocompleteButton: React.FC<AutocompleteButtonInterface> = ({
     searchPokemon(e.target.value);
   };
   return (
-    <StyledWrapper onClick={handleClick} value={autocompleteItem}>
+    <StyledWrapper
+      onClick={handleClick}
+      value={autocompleteItem}
+      className="autocompleteButton"
+      data-test="autocompleteButton"
+    >
       {autocompleteItem}
     </StyledWrapper>
   );
