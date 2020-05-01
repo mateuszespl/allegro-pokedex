@@ -22,9 +22,16 @@ export interface PokedexMainInterface {
   pokemonDataList: Array<any>;
 }
 
-const PokedexMain: React.FC<PokedexMainInterface> = ({ pokemonDataList }) => {
+export const PokedexMain: React.FC<PokedexMainInterface> = ({
+  pokemonDataList,
+}) => {
   return (
-    <StyledWrapper pokemonDataList={pokemonDataList} id="main" className="main">
+    <StyledWrapper
+      pokemonDataList={pokemonDataList}
+      id="main"
+      className="main"
+      data-test="main"
+    >
       {pokemonDataList.length < 964 && <LoadingScreen />}
       <SearchSection />
       <FiltersSection />

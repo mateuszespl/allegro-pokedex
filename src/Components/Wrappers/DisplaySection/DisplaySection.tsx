@@ -32,7 +32,7 @@ const StyledWrapper = styled.section`
 
 const DisplaySection: React.FC = () => {
   return (
-    <StyledWrapper className="display">
+    <StyledWrapper className="display" data-test="display">
       <PokemonList />
       <PaginationSection />
     </StyledWrapper>
