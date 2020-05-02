@@ -47,7 +47,7 @@ export interface FiltersButtonInterface {
   searchInputValue: string;
 }
 
-const FiltersButton: React.FC<FiltersButtonInterface> = ({
+export const FiltersButton: React.FC<FiltersButtonInterface> = ({
   setFilterSectionVisibility,
   filtersCount,
   searchInputValue,
@@ -61,6 +61,7 @@ const FiltersButton: React.FC<FiltersButtonInterface> = ({
       disabled={searchInputValue.length !== 0 ? true : false}
       filtersCount={filtersCount}
       onClick={handleClick}
+      data-test="filtersButton"
     >
       <FaFilter />
     </StyledWrapper>

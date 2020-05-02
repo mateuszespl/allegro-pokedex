@@ -3,7 +3,7 @@ import React from "react";
 import { FiltersSection } from "../Wrappers/FiltersSection/FiltersSection";
 import { findByTestAttr } from "../../functions/findByTestAttrFunction";
 
-describe("FiltersSection", () => {
+describe("<FiltersSection/>", () => {
   it("renders without error.", () => {
     const component = shallow(<FiltersSection filterSectionVisible={true} />);
     const section = findByTestAttr(component, "filters");

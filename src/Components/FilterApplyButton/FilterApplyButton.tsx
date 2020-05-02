@@ -26,6 +26,7 @@ export const FilterApplyButton: React.FC<FilterApplyButtonInterface> = ({
       value={filter}
       onClick={handleClick}
       className="filter__button"
+      data-test="filterApplyButton"
     >
       Zastosuj filtr
     </StyledWrapper>

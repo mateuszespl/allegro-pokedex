@@ -20,16 +20,18 @@ export interface AutocompleteListInterface {
   autocompleteList: Array<any>;
 }
 
-const AutocompleteList: React.FC<AutocompleteListInterface> = ({
+export const AutocompleteList: React.FC<AutocompleteListInterface> = ({
   autocompleteList,
 }) => {
   return (
-    <StyledWrapper autocompleteList={autocompleteList}>
+    <StyledWrapper
+      autocompleteList={autocompleteList}
+      className="autocompleteList"
+      data-test="autocompleteList"
+    >
       {autocompleteList.map((autocompleteItem) => (
         <AutocompleteButton autocompleteItem={autocompleteItem} />
       ))}
     </StyledWrapper>
   );
 };
-
-export default AutocompleteList;

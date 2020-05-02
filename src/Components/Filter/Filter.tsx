@@ -35,7 +35,7 @@ export interface FilterInterface {
   displayMode: string;
 }
 
-const Filter: React.FC<FilterInterface> = ({
+export const Filter: React.FC<FilterInterface> = ({
   filter,
   setFilters,
   displayMode,
@@ -60,6 +60,7 @@ const Filter: React.FC<FilterInterface> = ({
       filterApplied={filterApplied}
       filterVisible={filterVisible}
       className="filter"
+      data-test="filter"
     >
       <FilterSwitchButton
         displayMode={displayMode}

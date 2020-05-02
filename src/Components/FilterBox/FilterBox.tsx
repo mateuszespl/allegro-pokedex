@@ -41,7 +41,7 @@ export interface FilterBoxInterface {
   filter: string;
 }
 
-const FilterBox: React.FC<FilterBoxInterface> = ({
+export const FilterBox: React.FC<FilterBoxInterface> = ({
   filter,
   weightValue,
   setWeightValue,
@@ -51,7 +51,7 @@ const FilterBox: React.FC<FilterBoxInterface> = ({
   setTypeValue,
 }) => {
   return (
-    <StyledWrapper className="filter__box">
+    <StyledWrapper className="filter__box" data-test="filterBox">
       {filter === "Waga" && (
         <label>
           <span>
