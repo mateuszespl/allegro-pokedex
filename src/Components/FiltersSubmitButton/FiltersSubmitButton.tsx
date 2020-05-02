@@ -46,7 +46,7 @@ export interface FiltersSubmitButtonInterface {
   clearFilters: () => any;
 }
 
-const FiltersSubmitButton: React.FC<FiltersSubmitButtonInterface> = ({
+export const FiltersSubmitButton: React.FC<FiltersSubmitButtonInterface> = ({
   currentFilters,
   filterPokemonList,
   pokemonDataList,
@@ -76,6 +76,7 @@ const FiltersSubmitButton: React.FC<FiltersSubmitButtonInterface> = ({
     <StyledWrapper
       className="filters__submit"
       onClick={handleClick}
+      data-test="filtersSubmitButton"
       filterApplied={filterApplied}
       currentFilters={currentFilters}
       disabled={currentFilters.length === 0 ? true : false}
