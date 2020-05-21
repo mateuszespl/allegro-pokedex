@@ -1,6 +1,6 @@
 # Pokedex
 
-Hi, I've made this app as a recruitment task for Allegro. Basically you can check out your favourite Pokemon's information. You can filter Pokemon's by weight, height and type. There is also search by name possibility with nice autocomplete feature. I didn't prepare any tests, becasue i've run out of time - but it is on my To Do list, so you can check out this repo for any updates!
+Thanks to this app, basically you can check out your favourite Pokemon's information. You may play with it and filter Pokemon's by weight, height and type. There is also search by name possibility with nice autocomplete feature. es!
 
 ## Getting Started
 
