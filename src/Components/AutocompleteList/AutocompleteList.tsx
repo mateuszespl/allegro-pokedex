@@ -35,3 +35,5 @@ export const AutocompleteList: React.FC<AutocompleteListInterface> = ({
     </StyledWrapper>
   );
 };
+
+export default AutocompleteList;

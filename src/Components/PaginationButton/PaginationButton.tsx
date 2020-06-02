@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { updateCurrentPage } from "../../store/actionsCreator";
 import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
 
-const StyledWrapper = styled.a<{ previous: boolean }>`
+const StyledWrapper = styled.a<{ previous: boolean; disabled: boolean }>`
   padding: ${({ previous }) =>
     previous ? "10px 20px 10px 50px" : "10px 50px 10px 20px"};
   margin: 0 10px;
@@ -18,12 +18,14 @@ const StyledWrapper = styled.a<{ previous: boolean }>`
   font-size: ${({ theme }) => theme.fonts.m};
   color: ${({ theme }) => theme.colors.white};
   text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.lightBlack};
-  cursor: pointer;
+  cursor: ${({ disabled, previous }) =>
+    disabled && previous ? "not-allowed" : "pointer"};
   box-shadow: 0px 1px 3px 0px ${({ theme }) => theme.colors.lightBlack};
   font-weight: 800;
   position: relative;
   outline: none;
   text-decoration: none;
+  opacity: ${({ disabled, previous }) => disabled && previous && 0.3};
 
   svg {
     position: absolute;
@@ -78,9 +80,11 @@ const PaginationButton: React.FC<PaginationButtonInterface> = ({
 }) => {
   const handleClick = (previous) => {
     if (previous) {
-      const previousCurrentPage = currentPage - 2;
-      const updatedPage = currentPage - 1;
-      updateCurrentPage(previousCurrentPage, updatedPage, limit);
+      if (currentPage !== 1) {
+        const previousCurrentPage = currentPage - 2;
+        const updatedPage = currentPage - 1;
+        updateCurrentPage(previousCurrentPage, updatedPage, limit);
+      }
     } else {
       const updatedPage = currentPage + 1;
       updateCurrentPage(currentPage, updatedPage, limit);
@@ -98,6 +102,7 @@ const PaginationButton: React.FC<PaginationButtonInterface> = ({
         className={`pagination__button ${previous ? "previous" : "next"}`}
         onClick={() => handleClick(previous)}
         previous={previous}
+        disabled={currentPage === 1}
       >
         {previous ? (
           <>
