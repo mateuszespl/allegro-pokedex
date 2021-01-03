@@ -1,18 +1,8 @@
 import React from "react";
-import styled from "styled-components";
 
-const StyledWrapper = styled.button`
-  background: ${({ theme }) => theme.colors.darkGrey};
-  color: ${({ theme }) => theme.colors.white};
-  font-size: ${({ theme }) => theme.fonts.xs};
-  border: none;
-  height: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  outline: none;
-`;
+import { StyledFilterApplyButton } from "./FilterApplyButton.styled";
 
-export interface FilterApplyButtonInterface {
+interface FilterApplyButtonInterface {
   filter: string;
   handleClick: (e: React.FormEvent<HTMLButtonElement>) => any;
 }
@@ -22,13 +12,13 @@ export const FilterApplyButton: React.FC<FilterApplyButtonInterface> = ({
   handleClick,
 }) => {
   return (
-    <StyledWrapper
+    <StyledFilterApplyButton
       value={filter}
       onClick={handleClick}
       className="filter__button"
       data-test="filterApplyButton"
     >
       Zastosuj filtr
-    </StyledWrapper>
+    </StyledFilterApplyButton>
   );
 };

@@ -1,43 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import styled from "styled-components";
-import { setCurrentFilters } from "../../store/actionsCreator";
-import FilterBox from "../FilterBox/FilterBox";
+
+import FilterBox from "../FilterBox";
 import { FilterSwitchButton } from "../FilterSwitchButton/FilterSwitchButton";
 import { FilterApplyButton } from "../FilterApplyButton/FilterApplyButton";
+import { StyledFilter } from "./Filter.styled";
 
-const StyledWrapper = styled.li<{
-  filterVisible: boolean;
-  filterApplied: boolean;
-}>`
-  padding: 5px 10px;
-  border: 1px solid ${({ theme }) => theme.colors.darkGrey};
-  border-radius: 15px;
-  list-style: none;
-  width: 120px;
-  position: relative;
-  height: ${({ filterVisible }) => (filterVisible ? "100%" : "30px")};
-  outline: none;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  z-index: 100;
-  background: ${({ theme }) => theme.colors.darkWhite};
-
-  ${({ theme }) => theme.media.smallTablet} {
-    margin: 5px;
-  }
-`;
-
-export interface FilterInterface {
+interface FilterInterface {
   filter: string;
-  setFilters: (e: React.FormEvent<HTMLButtonElement>) => any;
+  setCurrentFilters: (e: React.FormEvent<HTMLButtonElement>) => any;
   displayMode: string;
 }
 
 export const Filter: React.FC<FilterInterface> = ({
   filter,
-  setFilters,
+  setCurrentFilters,
   displayMode,
 }) => {
   const [filterVisible, setFilterVisible] = useState<boolean>(false);
@@ -45,7 +21,7 @@ export const Filter: React.FC<FilterInterface> = ({
 
   const handleClick = (e) => {
     e.preventDefault();
-    setFilters(e);
+    setCurrentFilters(e);
     setFilterVisible(!filterVisible);
     setFilterApplied(!filterApplied);
   };
@@ -56,7 +32,7 @@ export const Filter: React.FC<FilterInterface> = ({
     }
   }, [displayMode]);
   return (
-    <StyledWrapper
+    <StyledFilter
       filterApplied={filterApplied}
       filterVisible={filterVisible}
       className="filter"
@@ -71,20 +47,6 @@ export const Filter: React.FC<FilterInterface> = ({
       />
       <FilterBox filter={filter} />
       <FilterApplyButton filter={filter} handleClick={handleClick} />
-    </StyledWrapper>
+    </StyledFilter>
   );
 };
-
-const mapStateToProps = (state) => {
-  return {
-    displayMode: state.displayMode,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setFilters: (e) => dispatch(setCurrentFilters(e)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);

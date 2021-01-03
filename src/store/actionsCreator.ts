@@ -30,7 +30,7 @@ export const fetchData = (
   offset?: number
 ) => {
   return async (dispatch) => {
-    const data = await fetchPokemonData(searchValue.toLowerCase(), 1000, 0);
+    const data = await fetchPokemonData(searchValue.toLowerCase(), 10, 0);
     localStorage.setItem(
       "Pokemons",
       JSON.stringify(data.results.map((result) => result.name))

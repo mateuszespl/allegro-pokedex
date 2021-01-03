@@ -1,37 +1,8 @@
 import React from "react";
-import styled from "styled-components";
-import { connect } from "react-redux";
-import {
-  setWeightValue,
-  setHeightValue,
-  setTypeValue,
-} from "../../store/actionsCreator";
 
-const StyledWrapper = styled.div`
-  position: relative;
-  margin: 30px 0 0 0;
-  display: flex;
-  flex-direction: column;
+import { StyledFilterBox } from "./FilterBox.styled";
 
-  label {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    span {
-      font-size: ${({ theme }) => theme.fonts.xs};
-    }
-
-    input,
-    select {
-      outline: none;
-      width: 100%;
-      margin: 5px 0 10px;
-    }
-  }
-`;
-
-export interface FilterBoxInterface {
+interface FilterBoxInterface {
   weightValue: number;
   heightValue: number;
   typeValue: number;
@@ -51,7 +22,7 @@ export const FilterBox: React.FC<FilterBoxInterface> = ({
   setTypeValue,
 }) => {
   return (
-    <StyledWrapper className="filter__box" data-test="filterBox">
+    <StyledFilterBox className="filter__box" data-test="filterBox">
       {filter === "Waga" && (
         <label>
           <span>
@@ -106,24 +77,6 @@ export const FilterBox: React.FC<FilterBoxInterface> = ({
           </select>
         </label>
       )}
-    </StyledWrapper>
+    </StyledFilterBox>
   );
 };
-
-const mapStateToProps = (state) => {
-  return {
-    typeValue: state.typeValue,
-    weightValue: state.weightValue,
-    heightValue: state.heightValue,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setWeightValue: (e) => dispatch(setWeightValue(e)),
-    setHeightValue: (e) => dispatch(setHeightValue(e)),
-    setTypeValue: (e) => dispatch(setTypeValue(e)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FilterBox);

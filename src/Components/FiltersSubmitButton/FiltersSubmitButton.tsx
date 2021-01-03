@@ -1,40 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import styled from "styled-components";
-import {
-  filterPokemonList,
-  displayModeUpdate,
-  clearFilters,
-} from "../../store/actionsCreator";
 
-const StyledWrapper = styled.button<{
-  currentFilters: Array<any>;
-  filterApplied: boolean;
-}>`
-  padding: 5px 10px;
-  border: 1px solid ${({ theme }) => theme.colors.darkGrey};
-  border-radius: 15px;
-  list-style: none;
-  width: 120px;
-  position: relative;
-  height: 30px;
-  opacity: ${({ currentFilters }) =>
-    currentFilters.length === 0 ? "50%" : "100%"};
-  outline: none;
-  font-size: ${({ theme }) => theme.fonts.s};
-  background: ${({ theme, filterApplied }) =>
-    !filterApplied ? theme.colors.green : theme.colors.red};
-  color: ${({ theme }) => theme.colors.white};
-  cursor: ${({ currentFilters }) =>
-    currentFilters.length === 0 ? "unset" : "pointer"};
+import { StyledFiltersSubmitButton } from "./FiltersSubmitButton.styled";
 
-  &:disabled,
-  [disabled] {
-    cursor: not-allowed;
-  }
-`;
-
-export interface FiltersSubmitButtonInterface {
+interface FiltersSubmitButtonInterface {
   currentFilters: Array<any>;
   filterPokemonList: (
     pokemonDataList: Array<any>,
@@ -73,7 +41,7 @@ export const FiltersSubmitButton: React.FC<FiltersSubmitButtonInterface> = ({
     }
   }, [currentFilters.length]);
   return (
-    <StyledWrapper
+    <StyledFiltersSubmitButton
       className="filters__submit"
       onClick={handleClick}
       data-test="filtersSubmitButton"
@@ -82,28 +50,6 @@ export const FiltersSubmitButton: React.FC<FiltersSubmitButtonInterface> = ({
       disabled={currentFilters.length === 0 ? true : false}
     >
       {!filterApplied ? "Filtruj" : "Resetuj filtry"}
-    </StyledWrapper>
+    </StyledFiltersSubmitButton>
   );
 };
-
-const mapStateToProps = (state) => {
-  return {
-    displayMode: state.displayMode,
-    currentFilters: state.currentFilters,
-    pokemonDataList: state.pokemonDataList,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    filterPokemonList: (pokemonDataList, filters) =>
-      dispatch(filterPokemonList(pokemonDataList, filters)),
-    displayModeUpdate: (mode) => dispatch(displayModeUpdate(mode)),
-    clearFilters: () => dispatch(clearFilters()),
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FiltersSubmitButton);

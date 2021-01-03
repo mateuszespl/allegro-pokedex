@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import PokedexMain from "./Components/PokedexMain";
+import PokedexMain from "./components/PokedexMain";
 import * as serviceWorker from "./serviceWorker";
 import { theme } from "./theme/theme";
 import { ThemeProvider } from "styled-components";
