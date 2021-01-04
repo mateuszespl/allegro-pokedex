@@ -1,38 +1,9 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import styled from "styled-components";
-import {
-  searchInputChange,
-  updateAutocompleteList,
-} from "./../../store/actionsCreator";
-import AutocompleteList from "../AutocompleteList/AutocompleteList";
 
-const StyledWrapper = styled.label<{ autocompleteList: Array<any> }>`
-  width: 100%;
-  position: relative;
+import AutocompleteList from "../AutocompleteList";
+import { StyledSearchInput } from "./SearchInput.styled";
 
-  input {
-    width: 100%;
-    height: 45px;
-    border: 1px solid ${({ theme }) => theme.colors.darkGrey};
-    padding: 10px 15px;
-    border-radius: 25px 0 0 25px;
-    border-right: none;
-    font-size: ${({ theme }) => theme.fonts.m};
-    outline: none;
-    background: ${({ theme }) => theme.colors.white};
-    -webkit-appearance: none;
-
-    &:disabled,
-    [disabled] {
-      -webkit-text-fill-color: ${({ theme }) => theme.colors.lightGrey};
-      opacity: 1 !important;
-      cursor: not-allowed;
-    }
-  }
-`;
-
-export interface SearchInputInterface {
+interface SearchInputInterface {
   searchInputValue: string;
   handleChange: () => any;
   updateAutocompleteList: () => any;
@@ -40,7 +11,7 @@ export interface SearchInputInterface {
   filterSectionVisible: boolean;
 }
 
-const SearchInput: React.FC<SearchInputInterface> = ({
+export const SearchInput: React.FC<SearchInputInterface> = ({
   searchInputValue,
   handleChange,
   updateAutocompleteList,
@@ -51,7 +22,7 @@ const SearchInput: React.FC<SearchInputInterface> = ({
     updateAutocompleteList();
   }, [searchInputValue]);
   return (
-    <StyledWrapper
+    <StyledSearchInput
       autocompleteList={autocompleteList}
       className="search__input"
     >
@@ -63,23 +34,6 @@ const SearchInput: React.FC<SearchInputInterface> = ({
         placeholder="Wpisz nazwę pokemona."
       />
       <AutocompleteList autocompleteList={autocompleteList} />
-    </StyledWrapper>
+    </StyledSearchInput>
   );
 };
-
-const mapStateToProps = (state) => {
-  return {
-    autocompleteList: state.autocompleteList,
-    searchInputValue: state.searchInputValue,
-    filterSectionVisible: state.filterSectionVisible,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    handleChange: (e) => dispatch(searchInputChange(e)),
-    updateAutocompleteList: () => dispatch(updateAutocompleteList()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);

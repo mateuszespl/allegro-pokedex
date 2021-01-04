@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { SearchSection } from "./Wrappers/SearchSection/SearchSection";
-import DisplaySection from "./Wrappers/DisplaySection/DisplaySection";
-import FiltersSection from "./Wrappers/FiltersSection/FiltersSection";
-import LoadingScreen from "./LoadingScreen/LoadingScreen";
+
+import SearchSection from "./Wrappers/SearchSection";
+import DisplaySection from "./Wrappers/DisplaySection";
+import FiltersSection from "./Wrappers/FiltersSection";
+import LoadingScreen from "./LoadingScreen";
 import { connect } from "react-redux";
 
 const StyledWrapper = styled.main<{ pokemonDataList: Array<any> }>`

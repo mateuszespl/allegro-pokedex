@@ -1,17 +1,9 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import styled from "styled-components";
-import Pokemon from "../Pokemon/Pokemon";
-import { fetchData, fetchPokemonInfoData } from "./../../store/actionsCreator";
 
-const StyledWrapper = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-`;
+import Pokemon from "../Pokemon";
+import { StyledPokemonList } from "./PokemonList.styled";
 
-export interface PokemonListInterface {
+interface PokemonListInterface {
   pokemonList: Array<any>;
   limit: number;
   currentPage: number;
@@ -23,7 +15,7 @@ export interface PokemonListInterface {
   currentPagePokemonDataList: Array<any>;
 }
 
-const PokemonList: React.FC<PokemonListInterface> = ({
+export const PokemonList: React.FC<PokemonListInterface> = ({
   pokemonList,
   limit,
   currentPage,
@@ -40,36 +32,13 @@ const PokemonList: React.FC<PokemonListInterface> = ({
   }, [pokemonList.length]);
 
   return (
-    <StyledWrapper className="display__list">
+    <StyledPokemonList className="display__list">
       {(displayMode === "Filter"
         ? filteredPokemonDataList
         : currentPagePokemonDataList
       ).map((pokemonData, id) => (
         <Pokemon key={id} pokemonData={pokemonData} />
       ))}
-    </StyledWrapper>
+    </StyledPokemonList>
   );
 };
-
-const mapStateToProps = (state) => {
-  return {
-    displayMode: state.displayMode,
-    currentPage: state.currentPage,
-    limit: state.limit,
-    pokemonList: state.pokemonList,
-    pokemonDataList: state.pokemonDataList,
-    filteredPokemonDataList: state.filteredPokemonDataList,
-    currentPagePokemonDataList: state.currentPagePokemonDataList,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchData: (searchValue, limit, currentPage) =>
-      dispatch(fetchData(searchValue, limit, currentPage)),
-    fetchPokemonInfoData: (pokemonList) =>
-      dispatch(fetchPokemonInfoData(pokemonList)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(PokemonList);
