@@ -5,7 +5,7 @@ import {
   setWeightValue,
   setHeightValue,
   setTypeValue,
-} from "../../store/actionsCreator";
+} from "store/actionsCreator";
 
 const mapStateToProps = (state) => {
   return {

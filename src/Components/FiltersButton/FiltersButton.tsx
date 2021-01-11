@@ -1,6 +1,6 @@
 import React from "react";
-
 import { FaFilter } from "react-icons/fa";
+
 import { StyledFiltersButton } from "./FiltersButton.styled";
 
 interface FiltersButtonInterface {

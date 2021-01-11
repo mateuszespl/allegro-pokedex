@@ -1,8 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
 import { FaSearch } from "react-icons/fa";
 
-import { searchPokemon } from "../../store/actionsCreator";
 import { StyledSearchButton } from "./SearchButton.styled";
 
 interface SearchButtonInterface {

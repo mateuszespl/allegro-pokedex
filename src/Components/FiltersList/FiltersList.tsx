@@ -1,7 +1,7 @@
 import React from "react";
 
 import Filter from "../Filter";
-import FiltersSubmitButton from "../FiltersSubmitButton";
+import FiltersSubmitButton from "components/FiltersSubmitButton";
 import { StyledFiltersList } from "./FiltersList.styled";
 
 export const FiltersList: React.FC = () => {

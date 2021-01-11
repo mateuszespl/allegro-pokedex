@@ -1,10 +1,11 @@
-import { FiltersSubmitButton } from "./FiltersSubmitButton";
 import { connect } from "react-redux";
+
+import { FiltersSubmitButton } from "./FiltersSubmitButton";
 import {
   filterPokemonList,
   displayModeUpdate,
   clearFilters,
-} from "../../store/actionsCreator";
+} from "store/actionsCreator";
 
 const mapStateToProps = (state) => {
   return {

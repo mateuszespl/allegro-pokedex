@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import { FiltersButton } from "./FiltersButton";
-import { setFilterSectionVisibility } from "../../store/actionsCreator";
+import { setFilterSectionVisibility } from "store/actionsCreator";
 
 const mapStateToProps = (state) => {
   return {

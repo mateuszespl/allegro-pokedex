@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-import FilterBox from "../FilterBox";
-import { FilterSwitchButton } from "../FilterSwitchButton/FilterSwitchButton";
-import { FilterApplyButton } from "../FilterApplyButton/FilterApplyButton";
+import FilterSwitchButton from "components/FilterSwitchButton";
+import FilterApplyButton from "components/FilterApplyButton";
+import FilterBox from "components/FilterBox";
 import { StyledFilter } from "./Filter.styled";
 
 interface FilterInterface {
