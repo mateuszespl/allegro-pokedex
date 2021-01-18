@@ -1,7 +1,7 @@
 import React from "react";
 
-import PokemonList from "../../PokemonList";
-import PaginationSection from "../PaginationSection";
+import PokemonList from "components/PokemonList";
+import PaginationSection from "components/Wrappers/PaginationSection";
 import { StyledDisplaySection } from "./DisplaySection.styled";
 
 export const DisplaySection: React.FC = () => {

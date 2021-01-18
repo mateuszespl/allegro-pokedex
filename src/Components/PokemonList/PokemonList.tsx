@@ -21,7 +21,6 @@ export const PokemonList: React.FC<PokemonListInterface> = ({
   currentPage,
   fetchData,
   fetchPokemonInfoData,
-  pokemonDataList,
   displayMode,
   filteredPokemonDataList,
   currentPagePokemonDataList,

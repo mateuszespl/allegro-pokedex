@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import AutocompleteList from "../AutocompleteList";
+import Autocomplete from "components/Autocomplete";
 import { StyledSearchInput } from "./SearchInput.styled";
 
 interface SearchInputInterface {
@@ -33,7 +33,7 @@ export const SearchInput: React.FC<SearchInputInterface> = ({
         value={searchInputValue}
         placeholder="Wpisz nazwę pokemona."
       />
-      <AutocompleteList autocompleteList={autocompleteList} />
+      <Autocomplete autocompleteList={autocompleteList} />
     </StyledSearchInput>
   );
 };

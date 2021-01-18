@@ -1,6 +1,6 @@
 import React from "react";
 
-import FiltersList from "../../FiltersList";
+import FiltersList from "components/FiltersList";
 import { StyledWFiltersSection } from "./FiltersSection.styled";
 
 interface FiltersSectionInterface {

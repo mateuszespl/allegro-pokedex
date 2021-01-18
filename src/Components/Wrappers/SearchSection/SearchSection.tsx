@@ -1,8 +1,8 @@
 import React from "react";
 
-import SearchInput from "./../../SearchInput";
-import SearchButton from "./../../SearchButton";
-import FiltersButton from "../../FiltersButton";
+import SearchInput from "components/SearchInput";
+import SearchButton from "components/SearchButton";
+import FiltersButton from "components/FiltersButton";
 import { StyledSearchSection } from "./SearchSection.styled";
 
 export const SearchSection: React.FC = () => {
