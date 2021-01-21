@@ -3,16 +3,18 @@ import React from "react";
 import SearchInput from "components/Search/SearchInput";
 import SearchButton from "components/Search/SearchButton";
 import FiltersButton from "components/FiltersButton";
-import { StyledSearchSection } from "./SearchSection.styled";
+import { StyledSearch } from "./Search.styled";
 
-export const SearchSection: React.FC = () => {
+interface SearchInterface {}
+
+export const Search: React.FC<SearchInterface> = () => {
   return (
-    <StyledSearchSection className="search" data-test="search">
+    <StyledSearch>
       <form className="search__form">
         <SearchInput />
         <SearchButton />
         <FiltersButton />
       </form>
-    </StyledSearchSection>
+    </StyledSearch>
   );
 };

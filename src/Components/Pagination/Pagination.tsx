@@ -3,17 +3,15 @@ import React from "react";
 import PaginationButton from "components/Pagination/PaginationButton";
 import PaginationSelect from "components/Pagination/PaginationSelect";
 import PaginationReturnButton from "components/Pagination/PaginationReturnButton";
-import { StyledPaginationSection } from "./PaginationSection.styled";
+import { StyledPagination } from "./Pagination.styled";
 
-interface PaginationSectionInterface {
+interface PaginationInterface {
   displayMode: string;
 }
 
-export const PaginationSection: React.FC<PaginationSectionInterface> = ({
-  displayMode,
-}) => {
+export const Pagination: React.FC<PaginationInterface> = ({ displayMode }) => {
   return (
-    <StyledPaginationSection className="pagination" data-test="pagination">
+    <StyledPagination>
       {displayMode !== "Filter" ? (
         <>
           <PaginationButton previous />
@@ -23,6 +21,6 @@ export const PaginationSection: React.FC<PaginationSectionInterface> = ({
       ) : (
         <PaginationReturnButton />
       )}
-    </StyledPaginationSection>
+    </StyledPagination>
   );
 };

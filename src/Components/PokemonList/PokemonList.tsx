@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import Pokemon from "../Pokemon";
+import PokemonListItem from "./PokemonListItem";
 import { StyledPokemonList } from "./PokemonList.styled";
 
 interface PokemonListInterface {
@@ -36,7 +36,7 @@ export const PokemonList: React.FC<PokemonListInterface> = ({
         ? filteredPokemonDataList
         : currentPagePokemonDataList
       ).map((pokemonData, id) => (
-        <Pokemon key={id} pokemonData={pokemonData} />
+        <PokemonListItem key={id} pokemonData={pokemonData} />
       ))}
     </StyledPokemonList>
   );
