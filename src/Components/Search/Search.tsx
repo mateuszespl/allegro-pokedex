@@ -2,7 +2,7 @@ import React from "react";
 
 import SearchInput from "components/Search/SearchInput";
 import SearchButton from "components/Search/SearchButton";
-import FiltersButton from "components/FiltersButton";
+import FilterListButton from "components/FilterListButton";
 import { StyledSearch } from "./Search.styled";
 
 interface SearchInterface {}
@@ -13,7 +13,7 @@ export const Search: React.FC<SearchInterface> = () => {
       <form className="search__form">
         <SearchInput />
         <SearchButton />
-        <FiltersButton />
+        <FilterListButton />
       </form>
     </StyledSearch>
   );

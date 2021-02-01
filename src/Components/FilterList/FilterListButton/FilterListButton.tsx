@@ -1,15 +1,15 @@
 import React from "react";
 import { FaFilter } from "react-icons/fa";
 
-import { StyledFiltersButton } from "./FiltersButton.styled";
+import { StyledFilterListButton } from "./FilterListButton.styled";
 
-interface FiltersButtonInterface {
+interface FilterListButtonInterface {
   setFilterSectionVisibility: () => any;
   filtersCount: number;
   searchInputValue: string;
 }
 
-export const FiltersButton: React.FC<FiltersButtonInterface> = ({
+export const FilterListButton: React.FC<FilterListButtonInterface> = ({
   setFilterSectionVisibility,
   filtersCount,
   searchInputValue,
@@ -19,13 +19,13 @@ export const FiltersButton: React.FC<FiltersButtonInterface> = ({
     setFilterSectionVisibility();
   };
   return (
-    <StyledFiltersButton
+    <StyledFilterListButton
       disabled={searchInputValue.length !== 0 ? true : false}
       filtersCount={filtersCount}
       onClick={handleClick}
       data-test="filtersButton"
     >
       <FaFilter />
-    </StyledFiltersButton>
+    </StyledFilterListButton>
   );
 };

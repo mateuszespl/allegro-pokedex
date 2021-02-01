@@ -28,4 +28,11 @@ export const StyledFilterList = styled.section<{
   ${({ theme }) => theme.media.mobile} {
     width: 280px;
   }
+
+  ul {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 `;

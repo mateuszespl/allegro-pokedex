@@ -3,9 +3,8 @@ import styled from "styled-components";
 
 import SearchSection from "./Wrappers/SearchSection";
 import DisplaySection from "./Wrappers/DisplaySection";
-import FiltersSection from "./Wrappers/FiltersSection";
-import LoadingScreen from "./LoadingScreen";
 import { connect } from "react-redux";
+import FilterList from "./FilterList";
 
 const StyledWrapper = styled.main<{ pokemonDataList: Array<any> }>`
   position: relative;
@@ -33,7 +32,7 @@ export const PokedexMain: React.FC<PokedexMainInterface> = ({
     >
       {/* {pokemonDataList.length < 964 && <LoadingScreen />} */}
       <SearchSection />
-      <FiltersSection />
+      <FilterList />
       <DisplaySection />
     </StyledWrapper>
   );

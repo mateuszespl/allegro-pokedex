@@ -1,6 +1,7 @@
 import React from "react";
 
-import FiltersList from "components/FiltersList";
+import Filter from "components/Filter";
+import FiltersSubmitButton from "components/FiltersSubmitButton";
 import { StyledFilterList } from "./FiltersList.styled";
 
 interface FilterListInterface {
@@ -16,8 +17,12 @@ export const FilterList: React.FC<FilterListInterface> = ({
       data-test="filters"
       filterSectionVisible={filterSectionVisible}
     >
-      <ul></ul>
-      <FiltersList />
+      <ul>
+        <Filter filter="Waga" />
+        <Filter filter="Wzrost" />
+        <Filter filter="Typ" />
+        <FiltersSubmitButton />
+      </ul>
     </StyledFilterList>
   );
 };
