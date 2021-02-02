@@ -2,7 +2,7 @@ import React from "react";
 
 import SearchInput from "components/Search/SearchInput";
 import SearchButton from "components/Search/SearchButton";
-import FilterListButton from "components/FilterListButton";
+import FilterListButton from "components/FilterList/FilterListButton";
 import { StyledSearch } from "./Search.styled";
 
 interface SearchInterface {}

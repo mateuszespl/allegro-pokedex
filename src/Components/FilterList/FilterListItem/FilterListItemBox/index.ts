@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { FilterBox } from "./FilterBox";
+import { FilterListItemBox } from "./FilterListItemBox";
 import {
   setWeightValue,
   setHeightValue,
@@ -21,4 +21,4 @@ const mapDispatchToProps = {
   setTypeValue,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FilterBox);
+export default connect(mapStateToProps, mapDispatchToProps)(FilterListItemBox);

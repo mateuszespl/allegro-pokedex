@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledFilterSwitchButton = styled.button<{
+export const StyledFilterListItemSwitchButton = styled.button<{
   filterApplied: boolean;
   filterVisible: boolean;
   displayMode: string;

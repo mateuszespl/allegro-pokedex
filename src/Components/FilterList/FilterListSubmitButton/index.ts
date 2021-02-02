@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { FiltersSubmitButton } from "./FiltersSubmitButton";
+import { FilterListSubmitButton } from "./FilterListSubmitButton";
 import {
   filterPokemonList,
   displayModeUpdate,
@@ -24,4 +24,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(FiltersSubmitButton);
+)(FilterListSubmitButton);

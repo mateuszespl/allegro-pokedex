@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledFiltersSubmitButton = styled.button<{
+export const StyledFilterListSubmitButton = styled.button<{
   currentFilters: Array<any>;
   filterApplied: boolean;
 }>`

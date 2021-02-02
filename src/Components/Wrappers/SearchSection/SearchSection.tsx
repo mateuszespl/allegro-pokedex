@@ -2,7 +2,7 @@ import React from "react";
 
 import SearchInput from "components/Search/SearchInput";
 import SearchButton from "components/Search/SearchButton";
-import FiltersButton from "components/FilterListButton";
+import FilterListButton from "components/FilterList/FilterListButton";
 import { StyledSearchSection } from "./SearchSection.styled";
 
 export const SearchSection: React.FC = () => {
@@ -11,7 +11,7 @@ export const SearchSection: React.FC = () => {
       <form className="search__form">
         <SearchInput />
         <SearchButton />
-        <FiltersButton />
+        <FilterListButton />
       </form>
     </StyledSearchSection>
   );

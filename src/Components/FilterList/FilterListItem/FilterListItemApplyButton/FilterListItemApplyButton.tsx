@@ -1,24 +1,24 @@
 import React from "react";
 
-import { StyledFilterApplyButton } from "./FilterApplyButton.styled";
+import { StyledFilterListItemApplyButton } from "./FilterListItemApplyButton.styled";
 
-interface FilterApplyButtonInterface {
+interface FilterListItemApplyButtonInterface {
   filter: string;
   handleClick: (e: React.FormEvent<HTMLButtonElement>) => any;
 }
 
-export const FilterApplyButton: React.FC<FilterApplyButtonInterface> = ({
+export const FilterApplyButton: React.FC<FilterListItemApplyButtonInterface> = ({
   filter,
   handleClick,
 }) => {
   return (
-    <StyledFilterApplyButton
+    <StyledFilterListItemApplyButton
       value={filter}
       onClick={handleClick}
       className="filter__button"
       data-test="filterApplyButton"
     >
       Zastosuj filtr
-    </StyledFilterApplyButton>
+    </StyledFilterListItemApplyButton>
   );
 };

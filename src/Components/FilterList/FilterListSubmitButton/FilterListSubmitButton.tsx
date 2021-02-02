@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-import { StyledFiltersSubmitButton } from "./FiltersSubmitButton.styled";
+import { StyledFilterListSubmitButton } from "./FilterListButton.styled";
 
-interface FiltersSubmitButtonInterface {
+interface FilterListSubmitButtonInterface {
   currentFilters: Array<any>;
   filterPokemonList: (
     pokemonDataList: Array<any>,
@@ -14,7 +14,7 @@ interface FiltersSubmitButtonInterface {
   clearFilters: () => any;
 }
 
-export const FiltersSubmitButton: React.FC<FiltersSubmitButtonInterface> = ({
+export const FilterListSubmitButton: React.FC<FilterListSubmitButtonInterface> = ({
   currentFilters,
   filterPokemonList,
   pokemonDataList,
@@ -41,7 +41,7 @@ export const FiltersSubmitButton: React.FC<FiltersSubmitButtonInterface> = ({
     }
   }, [currentFilters.length]);
   return (
-    <StyledFiltersSubmitButton
+    <StyledFilterListSubmitButton
       className="filters__submit"
       onClick={handleClick}
       data-test="filtersSubmitButton"
@@ -50,6 +50,6 @@ export const FiltersSubmitButton: React.FC<FiltersSubmitButtonInterface> = ({
       disabled={currentFilters.length === 0 ? true : false}
     >
       {!filterApplied ? "Filtruj" : "Resetuj filtry"}
-    </StyledFiltersSubmitButton>
+    </StyledFilterListSubmitButton>
   );
 };

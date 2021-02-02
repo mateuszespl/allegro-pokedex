@@ -1,8 +1,8 @@
 import React from "react";
 
-import { StyledFilterBox } from "./FilterBox.styled";
+import { StyledFilterListItemBox } from "./FilterListItemBox.styled";
 
-interface FilterBoxInterface {
+interface FilterListItemBoxInterface {
   weightValue: number;
   heightValue: number;
   typeValue: number;
@@ -12,7 +12,7 @@ interface FilterBoxInterface {
   filter: string;
 }
 
-export const FilterBox: React.FC<FilterBoxInterface> = ({
+export const FilterListItemBox: React.FC<FilterListItemBoxInterface> = ({
   filter,
   weightValue,
   setWeightValue,
@@ -22,7 +22,7 @@ export const FilterBox: React.FC<FilterBoxInterface> = ({
   setTypeValue,
 }) => {
   return (
-    <StyledFilterBox className="filter__box" data-test="filterBox">
+    <StyledFilterListItemBox className="filter__box" data-test="filterBox">
       {filter === "Waga" && (
         <label>
           <span>
@@ -77,6 +77,6 @@ export const FilterBox: React.FC<FilterBoxInterface> = ({
           </select>
         </label>
       )}
-    </StyledFilterBox>
+    </StyledFilterListItemBox>
   );
 };

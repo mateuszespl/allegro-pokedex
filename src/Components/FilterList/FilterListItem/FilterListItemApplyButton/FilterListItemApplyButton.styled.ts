@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledFilterApplyButton = styled.button`
+export const StyledFilterListItemApplyButton = styled.button`
   background: ${({ theme }) => theme.colors.darkGrey};
   color: ${({ theme }) => theme.colors.white};
   font-size: ${({ theme }) => theme.fonts.xs};

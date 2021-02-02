@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledFilterBox = styled.div`
+export const StyledFilterListItemBox = styled.div`
   position: relative;
   margin: 30px 0 0 0;
   display: flex;

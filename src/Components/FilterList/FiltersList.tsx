@@ -1,7 +1,7 @@
 import React from "react";
 
 import Filter from "components/Filter";
-import FiltersSubmitButton from "components/FiltersSubmitButton";
+import FiltersSubmitButton from "components/FilterList/FilterListSubmitButton";
 import { StyledFilterList } from "./FiltersList.styled";
 
 interface FilterListInterface {

@@ -1,9 +1,9 @@
 import React from "react";
 
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { StyledFilterSwitchButton } from "./FilterSwitchButton.styled";
+import { StyledFilterListItemSwitchButton } from "./FilterListItemSwitchButton.styled";
 
-interface FilterSwitchButtonInterface {
+interface FilterListItemSwitchButtonInterface {
   filterApplied: boolean;
   setFilterVisible: (filterVisible: boolean) => any;
   filterVisible: boolean;
@@ -11,7 +11,7 @@ interface FilterSwitchButtonInterface {
   displayMode: string;
 }
 
-export const FilterSwitchButton: React.FC<FilterSwitchButtonInterface> = ({
+export const FilterListItemSwitchButton: React.FC<FilterListItemSwitchButtonInterface> = ({
   filterApplied,
   setFilterVisible,
   filterVisible,
@@ -19,7 +19,7 @@ export const FilterSwitchButton: React.FC<FilterSwitchButtonInterface> = ({
   displayMode,
 }) => {
   return (
-    <StyledFilterSwitchButton
+    <StyledFilterListItemSwitchButton
       displayMode={displayMode}
       filterApplied={filterApplied}
       filterVisible={filterVisible}
@@ -29,6 +29,6 @@ export const FilterSwitchButton: React.FC<FilterSwitchButtonInterface> = ({
     >
       {filter}
       <MdKeyboardArrowDown />
-    </StyledFilterSwitchButton>
+    </StyledFilterListItemSwitchButton>
   );
 };
