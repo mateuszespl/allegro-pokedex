@@ -14,10 +14,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = () => {
   return {
-    handleChange: (e) => dispatch(searchInputChange(e)),
-    updateAutocompleteList: () => dispatch(updateAutocompleteList()),
+    searchInputChange,
+    updateAutocompleteList,
   };
 };
 

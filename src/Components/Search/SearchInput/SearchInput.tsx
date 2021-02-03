@@ -5,15 +5,15 @@ import { StyledSearchInput } from "./SearchInput.styled";
 
 interface SearchInputInterface {
   searchInputValue: string;
-  handleChange: () => any;
+  searchInputChange: () => any;
   updateAutocompleteList: () => any;
-  autocompleteList: Array<any>;
+  autocompleteList: string[];
   filterSectionVisible: boolean;
 }
 
 export const SearchInput: React.FC<SearchInputInterface> = ({
   searchInputValue,
-  handleChange,
+  searchInputChange,
   updateAutocompleteList,
   autocompleteList,
   filterSectionVisible,
@@ -29,7 +29,7 @@ export const SearchInput: React.FC<SearchInputInterface> = ({
       <input
         disabled={filterSectionVisible}
         type="text"
-        onChange={handleChange}
+        onChange={searchInputChange}
         value={searchInputValue}
         placeholder="Wpisz nazwę pokemona."
       />

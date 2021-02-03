@@ -4,7 +4,7 @@ import AutocompleteListItem from "./AutocompleteListItem";
 import { StyledAutocompleteList } from "./AutocompleteList.styled";
 
 interface AutocompleteListInterface {
-  autocompleteList: Array<any>;
+  autocompleteList: string[];
 }
 
 export const AutocompleteList: React.FC<AutocompleteListInterface> = ({
@@ -16,8 +16,8 @@ export const AutocompleteList: React.FC<AutocompleteListInterface> = ({
       className="autocompleteList"
       data-test="autocompleteList"
     >
-      {autocompleteList.map((autocompleteItem) => (
-        <AutocompleteListItem autocompleteItem={autocompleteItem} />
+      {autocompleteList.map((autocompleteItem, id) => (
+        <AutocompleteListItem autocompleteItem={autocompleteItem} key={id} />
       ))}
     </StyledAutocompleteList>
   );

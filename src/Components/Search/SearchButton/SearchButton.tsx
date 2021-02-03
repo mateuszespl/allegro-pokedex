@@ -5,7 +5,7 @@ import { StyledSearchButton } from "./SearchButton.styled";
 
 interface SearchButtonInterface {
   searchInputValue: string;
-  searchPokemon: (searchInputValue: string) => any;
+  searchPokemon: (searchInputValue: string) => void;
 }
 
 export const SearchButton: React.FC<SearchButtonInterface> = ({

@@ -7,7 +7,7 @@ interface FilterListItemApplyButtonInterface {
   handleClick: (e: React.FormEvent<HTMLButtonElement>) => any;
 }
 
-export const FilterApplyButton: React.FC<FilterListItemApplyButtonInterface> = ({
+export const FilterListItemApplyButton: React.FC<FilterListItemApplyButtonInterface> = ({
   filter,
   handleClick,
 }) => {

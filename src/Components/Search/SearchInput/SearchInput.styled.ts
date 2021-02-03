@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledSearchInput = styled.label<{ autocompleteList: Array<any> }>`
+export const StyledSearchInput = styled.label<{ autocompleteList: string[] }>`
   width: 100%;
   position: relative;
 

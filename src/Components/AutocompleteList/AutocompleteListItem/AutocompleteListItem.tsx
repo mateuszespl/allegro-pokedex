@@ -4,7 +4,7 @@ import { StyledAutocompleteListItem } from "./AutocompleteListItem.styled";
 
 interface AutocompleteListItemInterface {
   autocompleteItem: string;
-  searchPokemon: any;
+  searchPokemon: (searchPokemon: string) => void;
 }
 
 export const AutocompleteListItem: React.FC<AutocompleteListItemInterface> = ({
@@ -22,7 +22,7 @@ export const AutocompleteListItem: React.FC<AutocompleteListItemInterface> = ({
       className="autocompleteListItem"
       data-test="autocompleteListItem"
     >
-      {autocompleteItem}
+      <p>{autocompleteItem}</p>
     </StyledAutocompleteListItem>
   );
 };
