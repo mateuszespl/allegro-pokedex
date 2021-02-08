@@ -7,12 +7,12 @@ import {
 
 interface PokemonListItemStatsInterface {
   pokemonData: {
-    stats: Array<{
+    stats: {
       base_stat: number;
       stat: {
         name: string;
       };
-    }>;
+    }[];
   };
 }
 

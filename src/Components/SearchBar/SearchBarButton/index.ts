@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { SearchButton } from "./SearchButton";
+import { SearchBarButton } from "./SearchBarButton";
 import { searchPokemon } from "store/actionsCreator";
 
 const mapStateToProps = (state) => ({
@@ -11,4 +11,4 @@ const mapDispatchToProps = {
   searchPokemon,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchButton);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBarButton);

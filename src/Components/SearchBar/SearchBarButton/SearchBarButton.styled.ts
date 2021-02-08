@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledSearchButton = styled.button`
+export const StyledSearchBarButton = styled.button`
   height: 45px;
   padding: 0 15px;
   display: flex;

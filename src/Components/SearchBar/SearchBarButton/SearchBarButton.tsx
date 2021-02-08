@@ -1,14 +1,14 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
 
-import { StyledSearchButton } from "./SearchButton.styled";
+import { StyledSearchBarButton } from "./SearchBarButton.styled";
 
-interface SearchButtonInterface {
+interface SearchBarButtonInterface {
   searchInputValue: string;
   searchPokemon: (searchInputValue: string) => void;
 }
 
-export const SearchButton: React.FC<SearchButtonInterface> = ({
+export const SearchBarButton: React.FC<SearchBarButtonInterface> = ({
   searchInputValue,
   searchPokemon,
 }) => {
@@ -19,8 +19,8 @@ export const SearchButton: React.FC<SearchButtonInterface> = ({
     } else searchPokemon(searchInputValue);
   };
   return (
-    <StyledSearchButton className="search__button" onClick={handleClick}>
+    <StyledSearchBarButton className="search__button" onClick={handleClick}>
       <FaSearch />
-    </StyledSearchButton>
+    </StyledSearchBarButton>
   );
 };

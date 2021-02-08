@@ -1,18 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import PokedexMain from "./components/PokedexMain";
 import * as serviceWorker from "./serviceWorker";
-import { theme } from "./theme/theme";
 import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
+
+import { theme } from "./theme/theme";
 import { store } from "./store/store";
 import { GlobalStyle } from "./theme/GlobalStyle";
+import Router from "components/Router";
 
 ReactDOM.render(
   <Provider store={store}>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
-      <PokedexMain />
+      <Router />
     </ThemeProvider>
   </Provider>,
   document.getElementById("root")

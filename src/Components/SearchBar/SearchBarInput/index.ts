@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { SearchInput } from "./SearchInput";
+import { SearchBarInput } from "./SearchBarInput";
 import {
   searchInputChange,
   updateAutocompleteList,
@@ -21,4 +21,4 @@ const mapDispatchToProps = () => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBarInput);
