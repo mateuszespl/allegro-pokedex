@@ -1,7 +1,7 @@
 import React from "react";
 
-import Filter from "components/Filter";
 import FiltersSubmitButton from "components/FilterList/FilterListSubmitButton";
+import FilterListItem from "./FilterListItem";
 import { StyledFilterList } from "./FiltersList.styled";
 
 interface FilterListInterface {
@@ -18,9 +18,9 @@ export const FilterList: React.FC<FilterListInterface> = ({
       filterSectionVisible={filterSectionVisible}
     >
       <ul>
-        <Filter filter="Waga" />
-        <Filter filter="Wzrost" />
-        <Filter filter="Typ" />
+        <FilterListItem filter="Waga" />
+        <FilterListItem filter="Wzrost" />
+        <FilterListItem filter="Typ" />
         <FiltersSubmitButton />
       </ul>
     </StyledFilterList>
