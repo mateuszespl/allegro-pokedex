@@ -5,7 +5,7 @@ import {
   filterPokemonList,
   displayModeUpdate,
   clearFilters,
-} from "store/actionsCreator";
+} from "actions/FilterListActions";
 
 const mapStateToProps = (state) => {
   return {

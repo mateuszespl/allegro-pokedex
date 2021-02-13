@@ -1,6 +1,7 @@
-import { PaginationSelect } from "./PaginationSelect";
 import { connect } from "react-redux";
-import { setLimitValue } from "../../../store/actionsCreator";
+
+import { PaginationSelect } from "./PaginationSelect";
+import { setLimitValue } from "actions/PaginationActions";
 
 const mapStateToProps = (state) => {
   return {

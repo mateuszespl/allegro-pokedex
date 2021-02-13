@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import { AutocompleteListItem } from "./AutocompleteListItem";
-import { searchPokemon } from "store/actionsCreator";
+import { searchPokemon } from "actions/AutocompleteListActions";
 
 const mapDispatchToProps = {
   searchPokemon,

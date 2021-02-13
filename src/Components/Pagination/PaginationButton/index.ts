@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import { PaginationButton } from "./PaginationButton";
-import { updateCurrentPage } from "../../../store/actionsCreator";
+import { updateCurrentPage } from "actions/PaginationActions";
 
 const mapStateToProps = (state) => {
   return {

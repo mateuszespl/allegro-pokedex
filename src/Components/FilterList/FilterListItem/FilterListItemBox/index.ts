@@ -5,7 +5,7 @@ import {
   setWeightValue,
   setHeightValue,
   setTypeValue,
-} from "store/actionsCreator";
+} from "actions/FilterListActions";
 
 const mapStateToProps = (state) => {
   return {

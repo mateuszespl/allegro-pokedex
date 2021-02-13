@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import { PaginationReturnButton } from "./PaginationReturnButton";
-import { returnButtonClick } from "../../../store/actionsCreator";
+import { returnButtonClick } from "actions/PaginationActions";
 
 const mapDispatchToProps = {
   returnButtonClick,

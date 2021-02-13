@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { setCurrentFilters } from "store/actionsCreator";
+import { setCurrentFilters } from "actions/FilterListActions";
 import { FilterListItem } from "./FilterListItem";
 
 const mapStateToProps = (state) => {

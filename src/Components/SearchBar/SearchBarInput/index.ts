@@ -4,7 +4,7 @@ import { SearchBarInput } from "./SearchBarInput";
 import {
   searchInputChange,
   updateAutocompleteList,
-} from "store/actionsCreator";
+} from "actions/SearchBarActions";
 
 const mapStateToProps = (state) => {
   return {

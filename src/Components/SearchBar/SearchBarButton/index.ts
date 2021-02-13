@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import { SearchBarButton } from "./SearchBarButton";
-import { searchPokemon } from "store/actionsCreator";
+import { searchPokemon } from "actions/SearchBarActions";
 
 const mapStateToProps = (state) => ({
   searchInputValue: state.searchInputValue,

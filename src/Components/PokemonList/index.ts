@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import { PokemonList } from "./PokemonList";
-import { fetchData, fetchPokemonInfoData } from "./../../store/actionsCreator";
+import { fetchData, fetchPokemonInfoData } from "actions/PokemonListActions";
 
 const mapStateToProps = (state) => {
   return {
@@ -15,13 +15,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchData: (searchValue, limit, currentPage) =>
-      dispatch(fetchData(searchValue, limit, currentPage)),
-    fetchPokemonInfoData: (pokemonList) =>
-      dispatch(fetchPokemonInfoData(pokemonList)),
-  };
+const mapDispatchToProps = {
+  fetchData,
+  fetchPokemonInfoData,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PokemonList);
