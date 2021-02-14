@@ -8,4 +8,4 @@ export const fetchPokemonData = (
     {
       method: "GET",
     }
-  ).then((data) => data.json());
+  ).then((res) => res.json());

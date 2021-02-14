@@ -5,7 +5,6 @@ import PokemonListItemShowcase from "./PokemonListItemShowcase";
 import PokemonListItemStats from "./PokemonListItemStats";
 import { StyledPokemon } from "./PokemonListItem.styled";
 import { fetchPokemonData } from "functions/fetchPokemonDataFunction";
-import { pikachu } from "pikachu";
 
 interface PokemonInterface {
   key: number;
@@ -39,9 +38,9 @@ export const PokemonListItem: React.FC<PokemonInterface> = ({
 }) => {
   useEffect(() => {
     // @ts-ignore
-    console.log(pokemonData);
+    fetchPokemonData(pokemonName).then((data) => setPokemonData(data));
   }, [pokemonName]);
-  const [pokemonData, setPokemonData] = useState(pikachu);
+  const [pokemonData, setPokemonData] = useState(undefined);
   return (
     <>
       {pokemonData && (
