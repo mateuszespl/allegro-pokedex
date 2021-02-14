@@ -1,23 +1,19 @@
 import { connect } from "react-redux";
 
 import { PokemonList } from "./PokemonList";
-import { fetchData, fetchPokemonInfoData } from "actions/PokemonListActions";
+import { appInit } from "actions/PokemonListActions";
 
 const mapStateToProps = (state) => {
   return {
     displayMode: state.displayMode,
-    currentPage: state.currentPage,
-    limit: state.limit,
     pokemonList: state.pokemonList,
-    pokemonDataList: state.pokemonDataList,
-    filteredPokemonDataList: state.filteredPokemonDataList,
-    currentPagePokemonDataList: state.currentPagePokemonDataList,
+    filteredPokemonList: state.filteredPokemoList,
+    currentPagePokemonList: state.currentPagePokemonList,
   };
 };
 
 const mapDispatchToProps = {
-  fetchData,
-  fetchPokemonInfoData,
+  appInit,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PokemonList);

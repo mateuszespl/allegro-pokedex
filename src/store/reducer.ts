@@ -7,7 +7,7 @@ const initialState = {
   typeValue: "",
   pokemonList: [],
   pokemonDataList: [],
-  currentPagePokemonDataList: [],
+  currentPagePokemonList: [],
   filteredPokemonDataList: [],
   currentFilters: [],
   autocompleteList: [],
@@ -29,6 +29,7 @@ export const reducer = (state = initialState, action: any) => {
       return {
         ...state,
         pokemonList: action.pokemonList,
+        currentPagePokemonList: action.pokemonList.splice(0, 20),
       };
     case actionTypes.CLEAR_INPUT:
       return {

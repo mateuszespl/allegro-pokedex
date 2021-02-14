@@ -3,40 +3,37 @@ import React, { useEffect } from "react";
 import PokemonListItem from "./PokemonListItem";
 import { StyledPokemonList } from "./PokemonList.styled";
 
+interface PokemonApiReponse {
+  name: string;
+  url: string;
+}
+
 interface PokemonListInterface {
-  pokemonList: Array<any>;
-  limit: number;
-  currentPage: number;
-  fetchData: (searchValue: string, limit: number, currentPage: number) => any;
-  fetchPokemonInfoData: (pokemonList: any) => any;
-  pokemonDataList: Array<any>;
-  filteredPokemonDataList: Array<any>;
+  pokemonList: PokemonApiReponse[];
+  appInit: () => void;
+  filteredPokemonList: PokemonApiReponse[];
   displayMode: string;
-  currentPagePokemonDataList: Array<any>;
+  currentPagePokemonList: PokemonApiReponse[];
 }
 
 export const PokemonList: React.FC<PokemonListInterface> = ({
   pokemonList,
-  limit,
-  currentPage,
-  fetchData,
-  fetchPokemonInfoData,
+  appInit,
   displayMode,
-  filteredPokemonDataList,
-  currentPagePokemonDataList,
+  filteredPokemonList,
+  currentPagePokemonList,
 }) => {
   useEffect(() => {
-    fetchData("", limit, currentPage);
-    fetchPokemonInfoData(pokemonList);
-  }, [pokemonList.length]);
+    pokemonList.length === 0 && appInit();
+  }, [pokemonList.length, appInit]);
 
   return (
     <StyledPokemonList className="display__list">
       {(displayMode === "Filter"
-        ? filteredPokemonDataList
-        : currentPagePokemonDataList
-      ).map((pokemonData, id) => (
-        <PokemonListItem key={id} pokemonData={pokemonData} />
+        ? filteredPokemonList
+        : currentPagePokemonList
+      ).map(({ name: pokemonName, url: pokemonDataUrl }, id) => (
+        <PokemonListItem key={id} name={pokemonName} url={pokemonDataUrl} />
       ))}
     </StyledPokemonList>
   );
