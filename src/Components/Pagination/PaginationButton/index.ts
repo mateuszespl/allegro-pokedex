@@ -5,7 +5,6 @@ import { updateCurrentPage } from "actions/PaginationActions";
 
 const mapStateToProps = (state) => {
   return {
-    currentPage: state.currentPage,
     limit: state.limit,
   };
 };

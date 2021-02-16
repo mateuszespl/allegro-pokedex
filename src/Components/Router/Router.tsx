@@ -8,6 +8,7 @@ export const Router = () => {
     <main className="main">
       <BrowserRouter>
         <Switch>
+          <Route path="/:currentPage" component={Main} />
           <Route path="/" component={Main} />
         </Switch>
       </BrowserRouter>

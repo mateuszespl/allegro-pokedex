@@ -29,7 +29,7 @@ export const reducer = (state = initialState, action: any) => {
       return {
         ...state,
         pokemonList: action.pokemonList,
-        currentPagePokemonList: action.pokemonList.splice(0, 20),
+        currentPagePokemonList: action.pokemonList.slice(0, 20),
       };
     case actionTypes.CLEAR_INPUT:
       return {
@@ -40,7 +40,7 @@ export const reducer = (state = initialState, action: any) => {
       return {
         ...state,
         currentPage: action.updatedPage,
-        currentPagePokemonDataList: action.updatedPagePokemonDataList,
+        currentPagePokemonList: action.currentPagePokemonList,
       };
     case actionTypes.SET_FILTER_SECTION_VISIBILITY:
       return {

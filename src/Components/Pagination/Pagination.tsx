@@ -7,16 +7,20 @@ import { StyledPagination } from "./Pagination.styled";
 
 interface PaginationInterface {
   displayMode: string;
+  currentPage: number;
 }
 
-export const Pagination: React.FC<PaginationInterface> = ({ displayMode }) => {
+export const Pagination: React.FC<PaginationInterface> = ({
+  displayMode,
+  currentPage,
+}) => {
   return (
     <StyledPagination>
       {displayMode !== "Filter" ? (
         <>
-          <PaginationButton previous />
+          <PaginationButton previous currentPage={currentPage} />
           <PaginationSelect />
-          <PaginationButton />
+          <PaginationButton currentPage={currentPage} />
         </>
       ) : (
         <PaginationReturnButton />

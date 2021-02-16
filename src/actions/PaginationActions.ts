@@ -21,17 +21,15 @@ export const updateCurrentPage = (
   const currentRange = currentPage * limit;
   const updatedRange = updatedPage * limit;
   return (dispatch, getState) => {
-    const pokemonDataList = getState().pokemonDataList;
-    const updatedPokemonDataList = pokemonDataList.slice(
+    const pokemonList = getState().pokemonList;
+    const currentPagePokemonList = pokemonList.slice(
       currentRange,
       updatedRange
     );
     return dispatch({
       type: "UPDATE_CURRENT_PAGE",
-      updatedPage: updatedPage,
-      updatedPagePokemonDataList: updatedPokemonDataList,
+      updatedPage,
+      currentPagePokemonList,
     });
   };
-  // type: "UPDATE_CURRENT_PAGE",
-  // currentPage: updatedPage,
 };

@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+
 import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
 import { StyledPaginationButton } from "./PaginationButton.styled";
 
@@ -34,29 +36,28 @@ export const PaginationButton: React.FC<PaginationButtonInterface> = ({
 
   useEffect(() => {
     updateCurrentPage(0, 1, limit);
-  }, [limit]);
+  }, [limit, updateCurrentPage]);
 
   return (
-    <>
-      <StyledPaginationButton
-        href="#main"
-        className={`pagination__button ${previous ? "previous" : "next"}`}
-        onClick={() => handleClick(previous)}
-        previous={previous}
-        disabled={currentPage === 1}
-      >
-        {previous ? (
-          <>
-            <FaArrowCircleLeft />
-            Poprzednie {limit}
-          </>
-        ) : (
-          <>
-            Następne {limit}
-            <FaArrowCircleRight />
-          </>
-        )}
-      </StyledPaginationButton>
-    </>
+    <StyledPaginationButton
+      className={`pagination__button ${previous ? "previous" : "next"}`}
+      as={Link}
+      to={`/${previous ? Number(currentPage) - 1 : Number(currentPage) + 1}`}
+      onClick={handleClick}
+      previous={previous}
+      disabled={currentPage === 1}
+    >
+      {previous ? (
+        <>
+          <FaArrowCircleLeft />
+          Poprzednie {limit}
+        </>
+      ) : (
+        <>
+          Następne {limit}
+          <FaArrowCircleRight />
+        </>
+      )}
+    </StyledPaginationButton>
   );
 };
