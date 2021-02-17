@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
+
 import { StyledPaginationButton } from "./PaginationButton.styled";
 
 interface PaginationButtonInterface {
@@ -9,8 +9,8 @@ interface PaginationButtonInterface {
   currentPage: number;
   updateCurrentPage: (
     currentPage: number,
-    updatedPage: number,
-    limit: number
+    limit: number,
+    previous?: boolean
   ) => any;
   limit: number;
 }
@@ -21,21 +21,8 @@ export const PaginationButton: React.FC<PaginationButtonInterface> = ({
   updateCurrentPage,
   limit,
 }) => {
-  const handleClick = (previous) => {
-    if (previous) {
-      if (currentPage !== 1) {
-        const previousCurrentPage = currentPage - 2;
-        const updatedPage = currentPage - 1;
-        updateCurrentPage(previousCurrentPage, updatedPage, limit);
-      }
-    } else {
-      const updatedPage = currentPage + 1;
-      updateCurrentPage(currentPage, updatedPage, limit);
-    }
-  };
-
   useEffect(() => {
-    updateCurrentPage(0, 1, limit);
+    currentPage !== 1 && updateCurrentPage(0, limit, previous);
   }, [limit, updateCurrentPage]);
 
   return (
@@ -43,7 +30,7 @@ export const PaginationButton: React.FC<PaginationButtonInterface> = ({
       className={`pagination__button ${previous ? "previous" : "next"}`}
       as={Link}
       to={`/${previous ? Number(currentPage) - 1 : Number(currentPage) + 1}`}
-      onClick={handleClick}
+      onClick={() => updateCurrentPage(Number(currentPage), limit, previous)}
       previous={previous}
       disabled={currentPage === 1}
     >

@@ -13,9 +13,9 @@ export const searchInputChange = (e: React.FormEvent<HTMLInputElement>) => ({
 
 export const searchPokemon = (pokemonName: string) => {
   return (dispatch, getState) => {
-    const pokemonDataList = getState().pokemonDataList;
-    const searchedPokemon = pokemonDataList.filter(
-      (pokemon) => pokemon.name === pokemonName
+    const pokemonList = getState().pokemonList;
+    const searchedPokemon = pokemonList.filter(
+      ({ name }) => name === pokemonName
     );
     return dispatch({
       type: "SEARCH_POKEMON",
@@ -29,23 +29,14 @@ export const searchPokemon = (pokemonName: string) => {
 export const updateAutocompleteList = () => {
   return (dispatch, getState) => {
     const searchInputValue = getState().searchInputValue.toLowerCase();
-    if (searchInputValue.length === 0) {
-      return dispatch({
-        type: "UPDATE_AUTOCOMPLETE_LIST",
-        autocompleteList: [],
-      });
-    } else {
-      const pokemonList = getState().pokemonList;
-      const autocompleteList = pokemonList.filter((pokemon) =>
-        pokemon.includes(searchInputValue)
-      );
-      console.log(searchInputValue, pokemonList);
-      console.log(autocompleteList);
+    const pokemonList = getState().pokemonList.map(({ name }) => name);
+    const autocompleteList = pokemonList.filter((pokemon) =>
+      pokemon.includes(searchInputValue)
+    );
 
-      return dispatch({
-        type: "UPDATE_AUTOCOMPLETE_LIST",
-        autocompleteList: autocompleteList,
-      });
-    }
+    return dispatch({
+      type: "UPDATE_AUTOCOMPLETE_LIST",
+      autocompleteList: searchInputValue.length === 0 ? [] : autocompleteList,
+    });
   };
 };

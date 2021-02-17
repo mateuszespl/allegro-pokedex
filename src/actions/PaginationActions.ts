@@ -15,20 +15,19 @@ export const returnButtonClick = () => ({
 
 export const updateCurrentPage = (
   currentPage: number,
-  updatedPage: number,
-  limit: number
+  limit: number,
+  previous?: boolean
 ) => {
-  const currentRange = currentPage * limit;
-  const updatedRange = updatedPage * limit;
+  const rangeA = previous ? (currentPage - 2) * limit : currentPage * limit;
+  const rangeB = previous
+    ? (currentPage - 1) * limit
+    : (currentPage + 1) * limit;
+
   return (dispatch, getState) => {
     const pokemonList = getState().pokemonList;
-    const currentPagePokemonList = pokemonList.slice(
-      currentRange,
-      updatedRange
-    );
+    const currentPagePokemonList = pokemonList.slice(rangeA, rangeB);
     return dispatch({
-      type: "UPDATE_CURRENT_PAGE",
-      updatedPage,
+      type: "UPDATE_CURRENT_POKEMON_LIST",
       currentPagePokemonList,
     });
   };

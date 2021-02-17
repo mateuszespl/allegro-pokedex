@@ -4,7 +4,7 @@ import { fetchPokemonData } from "../functions/fetchPokemonDataFunction";
 
 export const appInit = () => {
   return async (dispatch) => {
-    const apiResponse = await fetchPokemonData("");
+    const apiResponse = await fetchPokemonData("", 2000);
     const pokemonList = apiResponse.results;
     return dispatch({ type: "POKEMON_LIST_UPDATE", pokemonList });
   };

@@ -14,11 +14,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = () => {
-  return {
-    searchInputChange,
-    updateAutocompleteList,
-  };
+const mapDispatchToProps = {
+  searchInputChange,
+  updateAutocompleteList,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBarInput);

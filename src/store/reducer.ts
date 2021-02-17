@@ -8,7 +8,7 @@ const initialState = {
   pokemonList: [],
   pokemonDataList: [],
   currentPagePokemonList: [],
-  filteredPokemonDataList: [],
+  filteredPokemonList: [],
   currentFilters: [],
   autocompleteList: [],
   currentPage: 1,
@@ -36,10 +36,9 @@ export const reducer = (state = initialState, action: any) => {
         ...state,
         searchInputValue: "",
       };
-    case actionTypes.UPDATE_CURRENT_PAGE:
+    case actionTypes.UPDATE_CURRENT_POKEMON_LIST:
       return {
         ...state,
-        currentPage: action.updatedPage,
         currentPagePokemonList: action.currentPagePokemonList,
       };
     case actionTypes.SET_FILTER_SECTION_VISIBILITY:
@@ -83,7 +82,7 @@ export const reducer = (state = initialState, action: any) => {
     case actionTypes.POKEMON_FILTERED_LIST_DATA_UPDATE:
       return {
         ...state,
-        filteredPokemonDataList: action.filteredList,
+        filteredPokemonList: action.filteredList,
       };
     case actionTypes.DISPLAY_MODE_UPDATE:
       return {
