@@ -102,7 +102,7 @@ export const reducer = (state = initialState, action: any) => {
     case actionTypes.SEARCH_POKEMON:
       return {
         ...state,
-        filteredPokemonDataList: action.filteredList,
+        filteredPokemonList: action.filteredList,
         displayMode: "Filter",
         searchInputValue: "",
         autocompleteList: [],

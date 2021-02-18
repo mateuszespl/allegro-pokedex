@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
   return {
     displayMode: state.displayMode,
     pokemonList: state.pokemonList,
-    filteredPokemonList: state.filteredPokemoList,
+    filteredPokemonList: state.filteredPokemonList,
     currentPagePokemonList: state.currentPagePokemonList,
   };
 };

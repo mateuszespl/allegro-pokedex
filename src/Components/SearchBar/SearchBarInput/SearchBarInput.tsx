@@ -20,7 +20,7 @@ export const SearchBarInput: React.FC<SearchBarInputInterface> = ({
 }) => {
   useEffect(() => {
     updateAutocompleteList();
-  }, [searchInputValue]);
+  }, [searchInputValue, updateAutocompleteList]);
   return (
     <StyledSearchBarInput
       autocompleteList={autocompleteList}

@@ -14,8 +14,8 @@ export const searchInputChange = (e: React.FormEvent<HTMLInputElement>) => ({
 export const searchPokemon = (pokemonName: string) => {
   return (dispatch, getState) => {
     const pokemonList = getState().pokemonList;
-    const searchedPokemon = pokemonList.filter(
-      ({ name }) => name === pokemonName
+    const searchedPokemon = pokemonList.filter(({ name }) =>
+      name.includes(pokemonName)
     );
     return dispatch({
       type: "SEARCH_POKEMON",

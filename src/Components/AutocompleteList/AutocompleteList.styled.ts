@@ -4,7 +4,8 @@ export const StyledAutocompleteList = styled.ul<{
   autocompleteList: string[];
 }>`
   position: absolute;
-  display: ${({ autocompleteList }) => autocompleteList.length > 0 && "flex"};
+  display: ${({ autocompleteList }) =>
+    autocompleteList.length > 0 ? "flex" : "none"};
   flex-direction: column;
   width: 100%;
   border: 1px solid ${({ theme }) => theme.colors.darkGrey};
