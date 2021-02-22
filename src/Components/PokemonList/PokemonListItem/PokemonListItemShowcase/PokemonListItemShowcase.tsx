@@ -26,7 +26,7 @@ export const PokemonListItemShowcase: React.FC<PokemonListItemShowcaseInterface>
         <h1>{name.toUpperCase()}</h1>
       </header>
       <div className="showcase__img">
-        <img src={img} alt={`${name} avatar`} />
+        {img && <img src={img} alt={`${name} avatar`} />}
       </div>
     </StyledPokemonListItemShowcase>
   );

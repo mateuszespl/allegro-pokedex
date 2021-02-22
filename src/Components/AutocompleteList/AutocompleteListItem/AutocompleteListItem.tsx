@@ -4,7 +4,7 @@ import { StyledAutocompleteListItem } from "./AutocompleteListItem.styled";
 
 interface AutocompleteListItemInterface {
   autocompleteItem: string;
-  searchPokemon: (searchPokemon: string) => void;
+  searchPokemon: (pokemonName: string, isCalledAsAutocomplete: boolean) => void;
 }
 
 export const AutocompleteListItem: React.FC<AutocompleteListItemInterface> = ({
@@ -13,7 +13,7 @@ export const AutocompleteListItem: React.FC<AutocompleteListItemInterface> = ({
 }) => {
   const handleClick = (e) => {
     e.preventDefault();
-    searchPokemon(e.target.value);
+    searchPokemon(e.currentTarget.value, true);
   };
   return (
     <StyledAutocompleteListItem

@@ -24,6 +24,7 @@ export const reducer = (state = initialState, action: any) => {
       return {
         ...state,
         searchInputValue: action.searchInputValue,
+        autocompleteList: action.autocompleteList.slice(0, 10),
       };
     case actionTypes.POKEMON_LIST_UPDATE:
       return {
