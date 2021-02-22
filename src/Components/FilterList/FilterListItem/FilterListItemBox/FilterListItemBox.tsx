@@ -2,25 +2,32 @@ import React from "react";
 
 import { StyledFilterListItemBox } from "./FilterListItemBox.styled";
 
+type filtersValueType = {
+  type: string;
+  weight: number;
+  height: number;
+};
+
 interface FilterListItemBoxInterface {
-  weightValue: number;
-  heightValue: number;
-  typeValue: number;
-  setWeightValue: () => any;
-  setHeightValue: () => any;
-  setTypeValue: () => any;
+  handleChange: (filters: {
+    type: string;
+    weight: number;
+    height: number;
+  }) => void;
+  filtersValue: filtersValueType;
   filter: string;
 }
 
 export const FilterListItemBox: React.FC<FilterListItemBoxInterface> = ({
   filter,
-  weightValue,
-  setWeightValue,
-  heightValue,
-  setHeightValue,
-  typeValue,
-  setTypeValue,
+  filtersValue,
+  handleChange,
 }) => {
+  const {
+    weight: weightValue,
+    height: heightValue,
+    type: typeValue,
+  } = filtersValue;
   return (
     <StyledFilterListItemBox className="filter__box" data-test="filterBox">
       {filter === "Waga" && (
@@ -34,7 +41,7 @@ export const FilterListItemBox: React.FC<FilterListItemBoxInterface> = ({
             step="1"
             max="1000"
             value={weightValue}
-            onChange={setWeightValue}
+            onChange={() => handleChange({ weight: 1, height: 1, type: "a" })}
           />
         </label>
       )}
@@ -49,13 +56,16 @@ export const FilterListItemBox: React.FC<FilterListItemBoxInterface> = ({
             step="0.1"
             max="14.5"
             value={heightValue}
-            onChange={setHeightValue}
+            onChange={() => handleChange({ weight: 1, height: 1, type: "a" })}
           />
         </label>
       )}
       {filter === "Typ" && (
         <label>
-          <select value={typeValue} onChange={setTypeValue}>
+          <select
+            value={typeValue}
+            onChange={() => handleChange({ weight: 1, height: 1, type: "a" })}
+          >
             <option value="water">Water</option>
             <option value="poison">Poison</option>
             <option value="grass">Grass</option>

@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const StyledFilterListItem = styled.li<{
   filterVisible: boolean;
-  filterApplied: boolean;
 }>`
   padding: 5px 10px;
   border: 1px solid ${({ theme }) => theme.colors.darkGrey};

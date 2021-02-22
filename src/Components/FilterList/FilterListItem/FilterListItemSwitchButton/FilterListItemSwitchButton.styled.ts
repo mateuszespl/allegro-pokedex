@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const StyledFilterListItemSwitchButton = styled.button<{
-  filterApplied: boolean;
   filterVisible: boolean;
-  displayMode: string;
 }>`
   padding: 0 0 0 5px;
   width: 100%;
@@ -11,8 +9,6 @@ export const StyledFilterListItemSwitchButton = styled.button<{
   outline: none;
   position: absolute;
   border: none;
-  opacity: ${({ filterApplied, displayMode }) =>
-    filterApplied || displayMode === "Filter" ? "50%" : "100%"};
   top: 0;
   left: 0;
   display: flex;
@@ -24,8 +20,6 @@ export const StyledFilterListItemSwitchButton = styled.button<{
   z-index: 100;
   overflow: hidden;
   color: ${({ theme }) => theme.colors.darkGrey};
-  cursor: ${({ filterApplied, displayMode }) =>
-    filterApplied || displayMode === "Filter" ? "unset" : "pointer"};
 
   &:disabled,
   [disabled] {
