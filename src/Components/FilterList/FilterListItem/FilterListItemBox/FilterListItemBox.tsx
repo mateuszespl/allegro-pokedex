@@ -1,12 +1,7 @@
 import React from "react";
 
+import { filtersValueType } from "../FilterListItem";
 import { StyledFilterListItemBox } from "./FilterListItemBox.styled";
-
-type filtersValueType = {
-  type: string;
-  weight: number;
-  height: number;
-};
 
 interface FilterListItemBoxInterface {
   handleChange: (filters: {
@@ -41,7 +36,12 @@ export const FilterListItemBox: React.FC<FilterListItemBoxInterface> = ({
             step="1"
             max="1000"
             value={weightValue}
-            onChange={() => handleChange({ weight: 1, height: 1, type: "a" })}
+            onChange={(e) =>
+              handleChange({
+                ...filtersValue,
+                weight: Number(e.currentTarget.value),
+              })
+            }
           />
         </label>
       )}
@@ -56,7 +56,12 @@ export const FilterListItemBox: React.FC<FilterListItemBoxInterface> = ({
             step="0.1"
             max="14.5"
             value={heightValue}
-            onChange={() => handleChange({ weight: 1, height: 1, type: "a" })}
+            onChange={(e) =>
+              handleChange({
+                ...filtersValue,
+                height: Number(e.currentTarget.value),
+              })
+            }
           />
         </label>
       )}
@@ -64,7 +69,12 @@ export const FilterListItemBox: React.FC<FilterListItemBoxInterface> = ({
         <label>
           <select
             value={typeValue}
-            onChange={() => handleChange({ weight: 1, height: 1, type: "a" })}
+            onChange={(e) =>
+              handleChange({
+                ...filtersValue,
+                type: String(e.currentTarget.value),
+              })
+            }
           >
             <option value="water">Water</option>
             <option value="poison">Poison</option>

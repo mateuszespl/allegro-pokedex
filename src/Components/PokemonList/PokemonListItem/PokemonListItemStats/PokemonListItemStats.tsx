@@ -23,8 +23,9 @@ export const PokemonListItemStats: React.FC<PokemonListItemStatsInterface> = ({
   return (
     <StyledPokemonListItemStats className="stats">
       <ul className="stats__list">
-        {stats.map((stat) => (
+        {stats.map((stat, id) => (
           <StyledPokemonListItemStatsLi
+            key={`${stat.base_stat} ${id}`}
             base_stat={stat.base_stat}
             className="stats__item"
           >

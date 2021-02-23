@@ -1,15 +1,15 @@
 import React from "react";
 import { FaFilter } from "react-icons/fa";
 
-import { StyledFilterListButton } from "./FilterListButton.styled";
+import { StyledSearchBarFilterButton } from "./SearchBarFilterButton.styled";
 
-interface FilterListButtonInterface {
+interface SearchBarFilterButtonInterface {
   setFilterSectionVisibility: () => any;
   filtersCount: number;
   searchInputValue: string;
 }
 
-export const FilterListButton: React.FC<FilterListButtonInterface> = ({
+export const SearchBarFilterButton: React.FC<SearchBarFilterButtonInterface> = ({
   setFilterSectionVisibility,
   filtersCount,
   searchInputValue,
@@ -19,13 +19,13 @@ export const FilterListButton: React.FC<FilterListButtonInterface> = ({
     setFilterSectionVisibility();
   };
   return (
-    <StyledFilterListButton
+    <StyledSearchBarFilterButton
       disabled={searchInputValue.length !== 0 ? true : false}
       filtersCount={filtersCount}
       onClick={handleClick}
       data-test="filtersButton"
     >
       <FaFilter />
-    </StyledFilterListButton>
+    </StyledSearchBarFilterButton>
   );
 };

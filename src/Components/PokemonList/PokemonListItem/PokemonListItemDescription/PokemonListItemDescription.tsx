@@ -26,7 +26,11 @@ export const PokemonListItemDescription: React.FC<PokemonListItemDescriptionInte
       <li className="description__height">Wzrost: {height / 10}m</li>
       <li className="description__weight">Waga: {weight / 10}kg</li>
       {types.map(({ type }) => (
-        <StyledLi type={type.name} className="description__type">
+        <StyledLi
+          type={type.name}
+          key={type.name}
+          className="description__type"
+        >
           {type.name.toUpperCase()}
         </StyledLi>
       ))}

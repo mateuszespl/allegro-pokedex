@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const StyledFilterListButton = styled.button<{ filtersCount: number }>`
+export const StyledSearchBarFilterButton = styled.button<{
+  filtersCount: number;
+}>`
   border: 1px solid ${({ theme }) => theme.colors.darkGrey};
   display: flex;
   align-items: center;

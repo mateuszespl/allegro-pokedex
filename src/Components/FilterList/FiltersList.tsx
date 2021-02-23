@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import FiltersSubmitButton from "components/FilterList/FilterListSubmitButton";
 import FilterListItem from "./FilterListItem";
@@ -16,9 +16,6 @@ export const FilterList: React.FC<FilterListInterface> = ({
     height: 0,
     weight: 0,
   });
-  useEffect(() => {
-    console.log(filtersValue);
-  }, [filtersValue]);
   return (
     <StyledFilterList
       className="filters"
@@ -41,7 +38,7 @@ export const FilterList: React.FC<FilterListInterface> = ({
           filtersValue={filtersValue}
           filter="Typ"
         />
-        <FiltersSubmitButton />
+        <FiltersSubmitButton filtersValue={filtersValue} />
       </ul>
     </StyledFilterList>
   );

@@ -4,7 +4,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { StyledFilterListItemSwitchButton } from "./FilterListItemSwitchButton.styled";
 
 interface FilterListItemSwitchButtonInterface {
-  setFilterVisible: (filterVisible: boolean) => any;
+  setFilterVisible: (filterVisible: boolean) => void;
   filterVisible: boolean;
   filter: string;
 }

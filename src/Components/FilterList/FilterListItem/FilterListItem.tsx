@@ -4,7 +4,7 @@ import FilterSwitchButton from "components/FilterList/FilterListItem/FilterListI
 import FilterBox from "components/FilterList/FilterListItem/FilterListItemBox";
 import { StyledFilterListItem } from "./FilterListItem.styled";
 
-type filtersValueType = {
+export type filtersValueType = {
   type: string;
   weight: number;
   height: number;
