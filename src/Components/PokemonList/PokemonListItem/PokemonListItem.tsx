@@ -38,7 +38,9 @@ export const PokemonListItem: React.FC<PokemonInterface> = ({
 }) => {
   useEffect(() => {
     // @ts-ignore
-    fetchPokemonData(pokemonName).then((data) => setPokemonData(data));
+    fetchPokemonData(`/pokemon/${pokemonName}`).then((data) =>
+      setPokemonData(data)
+    );
   }, [pokemonName]);
   const [pokemonData, setPokemonData] = useState(undefined);
   return (

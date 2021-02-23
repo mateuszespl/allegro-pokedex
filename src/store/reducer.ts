@@ -95,10 +95,10 @@ export const reducer = (state = initialState, action: any) => {
         ...state,
         currentFilters: [],
       };
-    case actionTypes.UPDATE_AUTOCOMPLETE_LIST:
+    case actionTypes.FILTER_POKEMONS:
       return {
         ...state,
-        autocompleteList: action.autocompleteList.slice(0, 10),
+        pokemonList: action.pokemonList,
       };
     case actionTypes.SEARCH_POKEMON:
       return {

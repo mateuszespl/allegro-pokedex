@@ -4,7 +4,7 @@ export const fetchPokemonData = (
   offset?: number
 ) =>
   fetch(
-    `https://pokeapi.co/api/v2/pokemon/${searchValue}?limit=${limit}&offset=${offset}`,
+    `https://pokeapi.co/api/v2${searchValue}?limit=${limit}&offset=${offset}`,
     {
       method: "GET",
     }

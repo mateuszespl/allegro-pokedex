@@ -5,14 +5,16 @@ import { StyledFilterListSubmitButton } from "./FilterListButton.styled";
 
 interface FilterListSubmitButtonInterface {
   filtersValue: filtersValueType;
+  filterPokemons: (filters: filtersValueType) => void;
 }
 
 export const FilterListSubmitButton: React.FC<FilterListSubmitButtonInterface> = ({
   filtersValue,
+  filterPokemons,
 }) => {
   const handleClick = (e) => {
     e.preventDefault();
-    console.log(filtersValue);
+    filterPokemons(filtersValue);
   };
   return (
     <StyledFilterListSubmitButton
@@ -21,7 +23,7 @@ export const FilterListSubmitButton: React.FC<FilterListSubmitButtonInterface> =
       data-test="filtersSubmitButton"
       filterApplied={true}
       currentFilters={[]}
-      disabled={[].length === 0 ? true : false}
+      disabled={[1].length === 0 ? true : false}
     >
       {!true ? "Filtruj" : "Resetuj filtry"}
     </StyledFilterListSubmitButton>
