@@ -47,43 +47,10 @@ export const reducer = (state = initialState, action: any) => {
         ...state,
         filterSectionVisible: !state.filterSectionVisible,
       };
-    case actionTypes.WEIGHT_CHANGE:
-      return {
-        ...state,
-        weightValue: action.value,
-      };
-    case actionTypes.HEIGHT_CHANGE:
-      return {
-        ...state,
-        heightValue: action.value,
-      };
-    case actionTypes.TYPE_CHANGE:
-      return {
-        ...state,
-        typeValue: action.value,
-      };
     case actionTypes.LIMIT_CHANGE:
       return {
         ...state,
         limit: action.value,
-      };
-    case actionTypes.FILTERS_CHANGE:
-      return {
-        ...state,
-        currentFilters: [...state.currentFilters, action.filter].sort(),
-      };
-    case actionTypes.POKEMON_LIST_DATA_UPDATE:
-      return {
-        ...state,
-        pokemonDataList: [...state.pokemonDataList, action.pokemonData].sort(
-          compare
-        ),
-        currentPagePokemonDataList: state.pokemonDataList.slice(0, 20),
-      };
-    case actionTypes.POKEMON_FILTERED_LIST_DATA_UPDATE:
-      return {
-        ...state,
-        filteredPokemonList: action.filteredList,
       };
     case actionTypes.DISPLAY_MODE_UPDATE:
       return {
@@ -99,6 +66,7 @@ export const reducer = (state = initialState, action: any) => {
       return {
         ...state,
         pokemonList: action.pokemonList,
+        currentPagePokemonList: action.pokemonList.splice(0, state.limit),
       };
     case actionTypes.SEARCH_POKEMON:
       return {

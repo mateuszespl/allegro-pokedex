@@ -58,8 +58,7 @@ export const filterPokemons = (filters) => {
   return async (dispatch) => {
     const endpoint = `${type && `/type/${type}/`}`;
     const apiResponse = await fetchPokemonData(endpoint, 2000);
-    const pokemonList = apiResponse.results;
-    console.log(pokemonList);
+    const pokemonList = apiResponse.pokemon;
 
     return dispatch({
       type: "FILTER_POKEMONS",
