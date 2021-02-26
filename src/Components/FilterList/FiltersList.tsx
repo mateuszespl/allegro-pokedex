@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 
-import FiltersSubmitButton from "components/FilterList/FilterListSubmitButton";
 import FilterListItem from "./FilterListItem";
 import { StyledFilterList } from "./FiltersList.styled";
 
@@ -11,11 +10,26 @@ interface FilterListInterface {
 export const FilterList: React.FC<FilterListInterface> = ({
   filterSectionVisible,
 }) => {
-  const [filtersValue, setFiltersValue] = useState({
-    type: "",
-    height: 0,
-    weight: 0,
-  });
+  const pokemonTypes = [
+    "water",
+    "poison",
+    "grass",
+    "fire",
+    "bug",
+    "flying",
+    "normal",
+    "electric",
+    "ground",
+    "fairy",
+    "fighting",
+    "psychic",
+    "rock",
+    "steel",
+    "ghost",
+    "ice",
+    "dark",
+    "dragon",
+  ];
   return (
     <StyledFilterList
       className="filters"
@@ -23,22 +37,9 @@ export const FilterList: React.FC<FilterListInterface> = ({
       filterSectionVisible={filterSectionVisible}
     >
       <ul>
-        <FilterListItem
-          handleChange={setFiltersValue}
-          filtersValue={filtersValue}
-          filter="Waga"
-        />
-        <FilterListItem
-          handleChange={setFiltersValue}
-          filtersValue={filtersValue}
-          filter="Wzrost"
-        />
-        <FilterListItem
-          handleChange={setFiltersValue}
-          filtersValue={filtersValue}
-          filter="Typ"
-        />
-        <FiltersSubmitButton filtersValue={filtersValue} />
+        {pokemonTypes.map((pokemonType) => (
+          <FilterListItem pokemonType={pokemonType} key={pokemonType} />
+        ))}
       </ul>
     </StyledFilterList>
   );

@@ -5,6 +5,7 @@ const initialState = {
   searchInputValue: "",
   displayMode: "",
   typeValue: "",
+  allPokemons: [],
   pokemonList: [],
   pokemonDataList: [],
   currentPagePokemonList: [],
@@ -30,6 +31,7 @@ export const reducer = (state = initialState, action: any) => {
       return {
         ...state,
         pokemonList: action.pokemonList,
+        allPokemons: action.pokemonList,
         currentPagePokemonList: action.pokemonList.slice(0, 20),
       };
     case actionTypes.CLEAR_INPUT:

@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
-export const StyledFilterListItem = styled.li<{
-  filterVisible: boolean;
-}>`
+export const StyledFilterListItem = styled.li`
   padding: 5px 10px;
   border: 1px solid ${({ theme }) => theme.colors.darkGrey};
   border-radius: 15px;
   list-style: none;
   width: 120px;
   position: relative;
-  height: ${({ filterVisible }) => (filterVisible ? "100%" : "30px")};
+  height: "100%";
   outline: none;
   overflow: hidden;
   display: flex;

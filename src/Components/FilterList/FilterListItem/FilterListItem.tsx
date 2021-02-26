@@ -1,43 +1,31 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-import FilterSwitchButton from "components/FilterList/FilterListItem/FilterListItemSwitchButton";
-import FilterBox from "components/FilterList/FilterListItem/FilterListItemBox";
 import { StyledFilterListItem } from "./FilterListItem.styled";
 
-export type filtersValueType = {
-  type: string;
-  weight: number;
-  height: number;
-};
-
 interface FilterListItemInterface {
-  filter: string;
-  handleChange: (filters: filtersValueType) => void;
-  filtersValue: filtersValueType;
+  pokemonType: string;
+  filterPokemons: (pokemonType: string) => void;
 }
 
 export const FilterListItem: React.FC<FilterListItemInterface> = ({
-  filter,
-  filtersValue,
-  handleChange,
+  pokemonType,
+  filterPokemons,
 }) => {
-  const [filterVisible, setFilterVisible] = useState(false);
+  const [clicked, setClicked] = useState(false);
+  const history = useHistory();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setClicked(!clicked);
+    filterPokemons(pokemonType);
+    history.push("/");
+  };
   return (
-    <StyledFilterListItem
-      filterVisible={filterVisible}
-      className="filter"
-      data-test="filter"
-    >
-      <FilterSwitchButton
-        filter={filter}
-        filterVisible={filterVisible}
-        setFilterVisible={setFilterVisible}
-      />
-      <FilterBox
-        filtersValue={filtersValue}
-        filter={filter}
-        handleChange={handleChange}
-      />
+    <StyledFilterListItem className="filter" data-test="filter">
+      <button value={pokemonType} onClick={handleClick}>
+        {pokemonType}
+      </button>
     </StyledFilterListItem>
   );
 };

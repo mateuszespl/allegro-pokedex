@@ -1,3 +1,10 @@
-import { FilterListItem } from "./FilterListItem";
+import { connect } from "react-redux";
 
-export default FilterListItem;
+import { FilterListItem } from "./FilterListItem";
+import { filterPokemons } from "actions/FilterListActions";
+
+const mapDispatchToProps = {
+  filterPokemons,
+};
+
+export default connect(null, mapDispatchToProps)(FilterListItem);
