@@ -22,7 +22,11 @@ export const FilterListItem: React.FC<FilterListItemInterface> = ({
     history.push("/");
   };
   return (
-    <StyledFilterListItem className="filter" data-test="filter">
+    <StyledFilterListItem
+      type={pokemonType}
+      className="filter"
+      data-test="filter"
+    >
       <button value={pokemonType} onClick={handleClick}>
         {pokemonType}
       </button>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import FilterList from "components/FilterList";
 import PokemonList from "components/PokemonList";
@@ -7,19 +8,25 @@ import SearchBar from "components/SearchBar";
 import { StyledMain } from "./Main.styled";
 
 interface MainInterface {
-  match: { path: string; params: { currentPage: number } };
+  match: { path: string; params: { currentPage: string } };
 }
 
 export const Main: React.FC<MainInterface> = ({ match }) => {
+  const history = useHistory();
+  let currentPage = 0;
+
+  if (match.params.currentPage === "0") {
+    history.push("/");
+  } else if (match.path === "/") {
+    currentPage = 1;
+  } else currentPage = Number(match.params.currentPage);
   return (
     <StyledMain>
       <SearchBar />
       <FilterList />
       <section className="displaySection">
         <PokemonList />
-        <Pagination
-          currentPage={match.path === "/" ? 1 : match.params.currentPage}
-        />
+        <Pagination currentPage={currentPage} />
       </section>
     </StyledMain>
   );

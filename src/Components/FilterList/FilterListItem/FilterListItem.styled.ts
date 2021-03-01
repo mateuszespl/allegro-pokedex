@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
-export const StyledFilterListItem = styled.li`
+export const StyledFilterListItem = styled.li<{ type: string }>`
   padding: 5px 10px;
-  border: 1px solid ${({ theme }) => theme.colors.darkGrey};
-  border-radius: 15px;
   list-style: none;
+  height: calc(100vh / 18);
   width: 120px;
   position: relative;
   height: "100%";
@@ -13,7 +12,27 @@ export const StyledFilterListItem = styled.li`
   display: flex;
   flex-direction: column;
   z-index: 100;
-  background: ${({ theme }) => theme.colors.darkWhite};
+  background: ${({ theme, type }) => {
+    const index = Object.keys(theme.colors).findIndex(
+      (colorKey) => colorKey === type
+    );
+    const color: any = Object.values(theme.colors)[index];
+    return color;
+  }};
+  box-shadow: 2px 2px 3px 0px ${({ theme }) => theme.colors.lightBlack};
+
+  button {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    color: ${({ theme }) => theme.colors.white};
+    font-weight: 800;
+    text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.lightBlack};
+    text-transform: uppercase;
+    font-size: ${({ theme }) => theme.fonts.m};
+    background: none;
+    border: none;
+  }
 
   ${({ theme }) => theme.media.smallTablet} {
     margin: 5px;

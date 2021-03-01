@@ -1,22 +1,14 @@
 import * as actionTypes from "./actions";
-import { compare } from "../functions/compareFunction";
 
 const initialState = {
   searchInputValue: "",
   displayMode: "",
-  typeValue: "",
   allPokemons: [],
   pokemonList: [],
-  pokemonDataList: [],
   currentPagePokemonList: [],
   filteredPokemonList: [],
-  currentFilters: [],
   autocompleteList: [],
-  currentPage: 1,
   limit: 20,
-  weightValue: 0,
-  heightValue: 0,
-  filterSectionVisible: false,
 };
 
 export const reducer = (state = initialState, action: any) => {
@@ -43,11 +35,6 @@ export const reducer = (state = initialState, action: any) => {
       return {
         ...state,
         currentPagePokemonList: action.currentPagePokemonList,
-      };
-    case actionTypes.SET_FILTER_SECTION_VISIBILITY:
-      return {
-        ...state,
-        filterSectionVisible: !state.filterSectionVisible,
       };
     case actionTypes.LIMIT_CHANGE:
       return {

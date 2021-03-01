@@ -6,6 +6,7 @@ import { updateCurrentPage } from "actions/PaginationActions";
 const mapStateToProps = (state) => {
   return {
     limit: state.limit,
+    currentPagePokemonList: state.currentPagePokemonList,
   };
 };
 

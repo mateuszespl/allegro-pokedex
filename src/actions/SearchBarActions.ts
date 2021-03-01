@@ -7,8 +7,8 @@ export const clearInput = () => ({ type: "CLEAR_INPUT" });
 export const searchInputChange = (e: React.FormEvent<HTMLInputElement>) => {
   return (dispatch, getState) => {
     const searchInputValue = getState().searchInputValue.toLowerCase();
-    const pokemonList = getState().pokemonList.map(({ name }) => name);
-    const autocompleteList = pokemonList.filter((pokemon) =>
+    const allPokemons = getState().allPokemons.map(({ name }) => name);
+    const autocompleteList = allPokemons.filter((pokemon) =>
       pokemon.includes(searchInputValue)
     );
 
