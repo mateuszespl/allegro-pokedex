@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import FilterList from "components/FilterList";
 import PokemonList from "components/PokemonList";
 import Pagination from "components/Pagination";
-import SearchBar from "components/SearchBar";
+import NavBar from "components/NavBar";
 import { StyledMain } from "./Main.styled";
 
 interface MainInterface {
@@ -22,7 +22,7 @@ export const Main: React.FC<MainInterface> = ({ match }) => {
   } else currentPage = Number(match.params.currentPage);
   return (
     <StyledMain>
-      <SearchBar />
+      <NavBar />
       <FilterList />
       <section className="displaySection">
         <PokemonList />

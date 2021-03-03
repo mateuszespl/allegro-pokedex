@@ -5,8 +5,7 @@ export const StyledSearchBar = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 80px;
-  padding: 0 20px;
+  height: 100%;
 
   .search__form {
     display: flex;

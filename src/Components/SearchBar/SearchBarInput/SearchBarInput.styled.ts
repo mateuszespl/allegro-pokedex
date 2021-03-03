@@ -9,13 +9,13 @@ export const StyledSearchBarInput = styled.label<{
   input {
     width: 100%;
     height: 45px;
-    border: 1px solid ${({ theme }) => theme.colors.darkGrey};
     padding: 10px 15px;
-    border-radius: 25px 0 0 25px;
-    border-right: none;
+    border-radius: 10px 0 0 10px;
+    border: none;
     font-size: ${({ theme }) => theme.fonts.m};
+    font-weight: 500;
     outline: none;
-    background: ${({ theme }) => theme.colors.white};
+    background: ${({ theme }) => theme.colors.darkWhite};
     -webkit-appearance: none;
 
     &:disabled,
