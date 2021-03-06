@@ -4,11 +4,11 @@ import FilterListItem from "./FilterListItem";
 import { StyledFilterList } from "./FiltersList.styled";
 
 interface FilterListInterface {
-  filterSectionVisible: boolean;
+  isFilterSectionVisible: boolean;
 }
 
 export const FilterList: React.FC<FilterListInterface> = ({
-  filterSectionVisible,
+  isFilterSectionVisible,
 }) => {
   const pokemonTypes = [
     "water",
@@ -34,7 +34,7 @@ export const FilterList: React.FC<FilterListInterface> = ({
     <StyledFilterList
       className="filters"
       data-test="filters"
-      filterSectionVisible={filterSectionVisible}
+      isFilterSectionVisible={isFilterSectionVisible}
     >
       <ul>
         {pokemonTypes.map((pokemonType) => (

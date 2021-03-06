@@ -1,28 +1,27 @@
 import styled from "styled-components";
 
-export const StyledPokemonListItemShowcase = styled.div<{ pokeId: number }>`
+export const StyledPokemonListItemShowcase = styled.div<{
+  pokeId: number;
+  type: string;
+}>`
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-between;
   order: 1;
 
-  ::after {
-    content: "${({ pokeId }) => (pokeId ? `#${pokeId}` : `#`)}";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50px;
-    font-weight: 800;
-    font-size: ${({ theme }) => theme.fonts.m};
-    height: 50px;
-    background: ${({ theme }) => theme.colors.darkWhite};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    box-shadow: 2px 2px 5px 3px ${({ theme }) => theme.colors.lightBlack};
-    transform: translate(-25%, -25%);
+  span {
+    display: block;
+    font-size: ${({ theme }) => theme.fonts.id};
+    color: ${({ theme, type }) => {
+      const index = Object.keys(theme.colors).findIndex(
+        (colorKey) => colorKey === type
+      );
+      const color: any = Object.values(theme.colors)[index];
+      return color;
+    }};
+
+    filter: brightness(75%);
+    margin: 0 15px 0 0;
   }
 
   .showcase {
@@ -31,30 +30,14 @@ export const StyledPokemonListItemShowcase = styled.div<{ pokeId: number }>`
       h1 {
         color: ${({ theme }) => theme.colors.white};
         text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.lightBlack};
-        font-size: ${({ theme }) => theme.fonts.l};
+        font-size: ${({ theme }) => theme.fonts.xxl};
       }
     }
 
     &__img {
       position: relative;
-      height: 130px;
-      width: 130px;
-
-      ::after {
-        content: "";
-        background-image: url("https://www.shareicon.net/data/128x128/2016/10/18/844160_game_512x512.png");
-        width: 110%;
-        height: 110%;
-        -webkit-appearance: none;
-        position: absolute;
-        background-size: cover;
-        opacity: 10%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: block;
-        z-index: 0;
-      }
+      height: 150px;
+      width: 150px;
 
       img {
         z-index: 1;

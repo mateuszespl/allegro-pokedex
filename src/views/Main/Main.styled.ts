@@ -10,10 +10,7 @@ export const StyledMain = styled.div`
   flex-direction: column;
 
   .displaySection {
-    width: 850px;
-    padding: 50px;
-    border-radius: 50px;
-    margin: 0 0 20px 0;
+    padding: 80px 40px;
     background: ${({ theme }) => theme.colors.darkWhite};
     position: relative;
 

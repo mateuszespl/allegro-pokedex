@@ -3,6 +3,7 @@ export const theme = {
     red: "rgb(222,94,87)",
     white: "rgb(255, 255,255)",
     darkWhite: "rgb(245,245,245)",
+    transparentWhite: "rgba(255,255,255,0.4)",
     grey: "rgb(130,130,130)",
     green: "rgb(92,152,92)",
     darkGrey: "rgb(90,90,90)",
@@ -35,6 +36,8 @@ export const theme = {
     xxs: "10px",
     l: "22px",
     xl: "26px",
+    xxl: "40px",
+    id: "120px",
   },
   media: {
     tablet: "@media(max-width:870px)",

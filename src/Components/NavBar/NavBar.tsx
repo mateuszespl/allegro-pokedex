@@ -1,9 +1,19 @@
+import { FilterList } from "components/FilterList/FiltersList";
 import SearchBar from "components/SearchBar";
 import React from "react";
 
 import { StyledNavBar } from "./NavBar.styled";
+import NavBarIcons from "./NavBarIcons";
 
-export const NavBar: React.FC = () => {
+interface NavBarInterface {
+  isFilterSectionVisible: boolean;
+  setFilterSectionVisibility: () => void;
+}
+
+export const NavBar: React.FC<NavBarInterface> = ({
+  isFilterSectionVisible,
+  setFilterSectionVisibility,
+}) => {
   return (
     <StyledNavBar className="navbar">
       <div className="navbar__logo">
@@ -14,7 +24,8 @@ export const NavBar: React.FC = () => {
         />
       </div>
       <SearchBar />
-      <div>Icons</div>
+      <NavBarIcons setFilterSectionVisibility={setFilterSectionVisibility} />
+      <FilterList isFilterSectionVisible={isFilterSectionVisible} />
     </StyledNavBar>
   );
 };

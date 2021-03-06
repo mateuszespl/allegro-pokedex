@@ -7,8 +7,8 @@ export const StyledPokemon = styled.li<{ type1: string; type2: string }>`
   position: relative;
   justify-content: space-around;
   margin: 10px 0;
-  border-radius: 45px;
-  padding: 20px;
+  border-radius: 10px;
+  padding: 10px;
   background: ${({ theme, type1, type2 }) => {
     if (type2 !== undefined) {
       const index1 = Object.keys(theme.colors).findIndex(
@@ -28,7 +28,7 @@ export const StyledPokemon = styled.li<{ type1: string; type2: string }>`
       return color1;
     }
   }};
-  box-shadow: 0px 0px 3px 3px ${({ theme }) => theme.colors.lightBlack};
+  box-shadow: 0px 0px 10px 3px ${({ theme }) => theme.colors.lightBlack};
 
   ${({ theme }) => theme.media.tablet} {
     flex-wrap: wrap;

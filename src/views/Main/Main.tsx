@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import FilterList from "components/FilterList";
 import PokemonList from "components/PokemonList";
 import Pagination from "components/Pagination";
 import NavBar from "components/NavBar";
@@ -23,7 +22,6 @@ export const Main: React.FC<MainInterface> = ({ match }) => {
   return (
     <StyledMain>
       <NavBar />
-      <FilterList />
       <section className="displaySection">
         <PokemonList />
         <Pagination currentPage={currentPage} />

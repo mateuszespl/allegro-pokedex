@@ -6,6 +6,7 @@ const initialState = {
   allPokemons: [],
   pokemonList: [],
   currentPagePokemonList: [],
+  isFilterSectionVisible: false,
   filteredPokemonList: [],
   autocompleteList: [],
   limit: 20,
@@ -72,6 +73,11 @@ export const reducer = (state = initialState, action: any) => {
         filteredPokemonDataList: [],
         currentFilters: [],
         filterSectionVisible: false,
+      };
+    case actionTypes.SET_FILTER_SECTION_VISIBILITY:
+      return {
+        ...state,
+        isFilterSectionVisible: !state.isFilterSectionVisible,
       };
     default:
       return state;

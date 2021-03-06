@@ -4,9 +4,8 @@ export const StyledFilterListItem = styled.li<{ type: string }>`
   padding: 5px 10px;
   list-style: none;
   height: calc(100vh / 18);
-  width: 120px;
+  width: 10vw;
   position: relative;
-  height: "100%";
   outline: none;
   overflow: hidden;
   display: flex;
@@ -20,6 +19,7 @@ export const StyledFilterListItem = styled.li<{ type: string }>`
     return color;
   }};
   box-shadow: 2px 2px 3px 0px ${({ theme }) => theme.colors.lightBlack};
+  border-radius: 10px;
 
   button {
     cursor: pointer;

@@ -27,7 +27,7 @@ export const SearchBarInput: React.FC<SearchBarInputInterface> = ({
         name="Search"
         onChange={searchInputChange}
         value={searchInputValue}
-        placeholder="Wpisz nazwę pokemona."
+        placeholder="Wpisz nazwę pokemona"
       />
       <AutocompleteList autocompleteList={autocompleteList} />
     </StyledSearchBarInput>
