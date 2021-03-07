@@ -23,8 +23,12 @@ export const PokemonListItemDescription: React.FC<PokemonListItemDescriptionInte
   const { height, weight, types } = pokemonData;
   return (
     <StyledPokemonListItemDescription className="description">
-      <li className="description__height">Height: {height / 10}m</li>
-      <li className="description__weight">Weight: {weight / 10}kg</li>
+      <li className="description__height">
+        HEIGHT <span>{height / 10}m</span>
+      </li>
+      <li className="description__weight">
+        WEIGHT <span>{weight / 10}kg</span>
+      </li>
       {types.map(({ type }) => (
         <StyledLi
           type={type.name}

@@ -5,10 +5,9 @@ export const StyledPokemon = styled.li<{ type1: string; type2: string }>`
   display: flex;
   align-items: center;
   position: relative;
-  justify-content: space-around;
   margin: 10px 0;
   border-radius: 10px;
-  padding: 10px;
+  padding: 10px 30px;
   background: ${({ theme, type1, type2 }) => {
     if (type2 !== undefined) {
       const index1 = Object.keys(theme.colors).findIndex(

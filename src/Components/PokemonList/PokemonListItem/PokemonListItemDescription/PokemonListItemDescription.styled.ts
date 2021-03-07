@@ -3,25 +3,33 @@ import styled from "styled-components";
 export const StyledPokemonListItemDescription = styled.ul`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   order: 2;
+  background: ${({ theme }) => theme.colors.white};
+  padding: 10px 20px 10px 10px;
+  border-radius: 10px 0 0 10px;
+  box-shadow: 2px 2px 3px 0px ${({ theme }) => theme.colors.lightBlack};
+  height: 130px;
+  margin: 0 0 0 auto;
 
   li {
-    margin: 5px;
     list-style: none;
-    padding: 5px 10px;
-    border-radius: 15px;
+    margin: 5px;
     color: ${({ theme }) => theme.colors.white};
-    text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.lightBlack};
-    box-shadow: 2px 2px 3px 0px ${({ theme }) => theme.colors.lightBlack};
-    font-size: ${({ theme }) => theme.fonts.m};
+    font-weight: bolder;
+    font-size: ${({ theme }) => theme.fonts.xxs};
+  }
+
+  span {
+    margin: 0 0 0 20px;
+    font-size: ${({ theme }) => theme.fonts.xs};
   }
 
   .description {
     &__height,
     &__weight {
-      background: ${({ theme }) => theme.colors.lightBlack};
+      color: ${({ theme }) => theme.colors.black};
     }
   }
 
@@ -61,7 +69,11 @@ export const StyledLi = styled.li<{ type: any }>`
   }};
 
   color: ${({ theme }) => theme.colors.white};
+  width: 100%;
   font-weight: 800;
   text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.lightBlack};
   box-shadow: 2px 2px 3px 0px ${({ theme }) => theme.colors.lightBlack};
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
 `;
