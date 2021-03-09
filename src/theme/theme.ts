@@ -37,7 +37,7 @@ export const theme = {
     l: "22px",
     xl: "26px",
     xxl: "40px",
-    id: "120px",
+    id: "100px",
   },
   media: {
     tablet: "@media(max-width:870px)",

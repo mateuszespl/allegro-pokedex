@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
 
@@ -25,10 +25,6 @@ export const PaginationButton: React.FC<PaginationButtonInterface> = ({
   currentPagePokemonList,
   limit,
 }) => {
-  useEffect(() => {
-    currentPage !== 1 && updateCurrentPage(0, limit, previous);
-  }, [limit, updateCurrentPage]);
-
   const handleClick = (e) => {
     if (currentPage === 1 && previous) {
       e.preventDefault();
