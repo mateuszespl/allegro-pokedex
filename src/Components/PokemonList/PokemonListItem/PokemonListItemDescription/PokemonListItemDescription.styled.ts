@@ -7,10 +7,11 @@ export const StyledPokemonListItemDescription = styled.ul`
   justify-content: flex-start;
   order: 2;
   background: ${({ theme }) => theme.colors.white};
-  padding: 10px 20px 10px 10px;
+  padding: 10px 10px 10px 10px;
   border-radius: 10px 0 0 10px;
   box-shadow: 2px 2px 3px 0px ${({ theme }) => theme.colors.lightBlack};
   height: 130px;
+  min-width: 140px;
   margin: 0 0 0 auto;
 
   li {
@@ -34,10 +35,8 @@ export const StyledPokemonListItemDescription = styled.ul`
   }
 
   ${({ theme }) => theme.media.tablet} {
-    flex-direction: row;
-    margin: 10px 0 0 0;
-    width: 100%;
-    order: 3;
+    width: 30%;
+    display: none;
   }
 
   ${({ theme }) => theme.media.smallTablet} {

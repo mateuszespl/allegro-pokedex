@@ -9,8 +9,8 @@ export const StyledPokemonListItemStats = styled.div`
   height: 130px;
 
   ${({ theme }) => theme.media.tablet} {
-    width: 55%;
-    order: 2;
+    width: 50%;
+    display: none;
   }
 
   ${({ theme }) => theme.media.smallTablet} {

@@ -17,11 +17,13 @@ export const NavBar: React.FC<NavBarInterface> = ({
   return (
     <StyledNavBar className="navbar">
       <div className="navbar__logo">
-        <h1>Pokédex</h1>
-        <img
-          alt="pokedex icon"
-          src="https://cdn0.iconfinder.com/data/icons/pokemon-go-vol-2/135/_Pokedex_tool-512.png"
-        />
+        <a href="/1">
+          <h1>Pokédex</h1>
+          <img
+            alt="pokedex icon"
+            src="https://cdn0.iconfinder.com/data/icons/pokemon-go-vol-2/135/_Pokedex_tool-512.png"
+          />
+        </a>
       </div>
       <SearchBar />
       <NavBarIcons setFilterSectionVisibility={setFilterSectionVisibility} />

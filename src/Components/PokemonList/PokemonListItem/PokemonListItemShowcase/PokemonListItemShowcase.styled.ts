@@ -27,6 +27,7 @@ export const StyledPokemonListItemShowcase = styled.div<{
   .showcase {
     &__name {
       margin: 5px;
+      width: 250px;
       h1 {
         color: ${({ theme }) => theme.colors.white};
         text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.lightBlack};
@@ -51,35 +52,37 @@ export const StyledPokemonListItemShowcase = styled.div<{
   }
 
   ${({ theme }) => theme.media.tablet} {
-    width: 45%;
+    width: 100%;
   }
 
   ${({ theme }) => theme.media.smallTablet} {
-    width: 60%;
-  }
+    flex-wrap: wrap;
+    flex-direction: column;
 
-  ${({ theme }) => theme.media.largeMobile} {
-    width: 50%;
-
-    ::after {
-      font-size: ${({ theme }) => theme.fonts.s};
-      height: 35px;
-      width: 35px;
+    span {
+      position: absolute;
+      top: 20px;
+      left: 20px;
     }
 
-    .showcase__name {
-      h1 {
-        font-size: ${({ theme }) => theme.fonts.m};
+    .showcase {
+      &__name {
+        width: 100%;
+        text-align: center;
+      }
+
+      &__img {
+        height: 300px;
+        width: 300px;
       }
     }
   }
 
-  ${({ theme }) => theme.media.mobile} {
-    width: 40%;
-
-    .showcase__img {
-      height: 80px;
-      width: 80px;
+  ${({ theme }) => theme.media.largeMobile} {
+    .showcase__name {
+      h1 {
+        font-size: ${({ theme }) => theme.fonts.xl};
+      }
     }
   }
 `;

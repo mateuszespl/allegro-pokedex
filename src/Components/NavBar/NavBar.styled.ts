@@ -18,6 +18,15 @@ export const StyledNavBar = styled.nav`
     display: flex;
     align-items: center;
 
+    a {
+      display: flex;
+      text-decoration: none;
+    }
+
+    h1 {
+      color: black;
+    }
+
     img {
       margin: 0 0 0 10px;
       width: 30px;
